@@ -1,0 +1,83 @@
+---
+type: "high-level-architecture"
+artifact_type: "Architecture Blueprint"
+schema_version: 1
+document_type: "High-Level Architecture"
+customer: "{{ customer }}"
+solution: "{{ solution }}"
+status: "Working"
+last_updated: "{{ date }}"
+---
+
+# {{ customer }} — {{ solution }} High-Level Architecture
+
+## Purpose and Scope
+
+Describe the architecture at the level required to connect business outcomes, information products, principal delivery paths, trust, operations, technology, and decisions.
+
+## Solution Summary
+
+<Write no more than three narrative paragraphs. Explain the business purpose, the main information service, and the most important current or target architecture characteristics.>
+
+## High-Level Architecture View
+
+```mermaid
+flowchart LR
+    SRC[External Sources] --> DF[Principal Data Flows]
+    DF --> DP[Managed Data Products]
+    DP --> CON[Consumers]
+    CON --> UC[Business Use Cases]
+    UC --> RC[Required Capabilities]
+    QC[Quality Controls] -. assure .-> DF
+    OC[Operational Capabilities] -. operate .-> DF
+    TECH[Technologies] -. realize .-> DF
+    ADR[Architecture Decisions] -. shape .-> DF
+```
+
+## Business Outcomes
+
+<Summarize the distinct business use cases and their outcomes.>
+
+## Consumers
+
+<Summarize the main consumer groups and consumption patterns.>
+
+## Source Boundary
+
+<Summarize only real external source systems and providers. Exclude internal stages.>
+
+## Required Capabilities
+
+<Summarize the capabilities that materially shape the architecture.>
+
+## Data Products
+
+<Summarize the managed information products and their consumers.>
+
+## Principal Data Flows
+
+<Describe the main end-to-end paths. Avoid enumerating every job.>
+
+## Quality and Trust
+
+<Summarize the controls that establish completeness, consistency, disclosure safety, and traceability.>
+
+## Operations and Monitoring
+
+<Summarize orchestration, monitoring, recovery, security, retention, capacity, deployment, and lifecycle concerns.>
+
+## Technologies
+
+<Summarize named technologies that materially realize or constrain the solution.>
+
+## Architecture-Shaping Decisions
+
+<Summarize the decisions with the greatest solution or customer impact.>
+
+## Current, Transitional, and Target State
+
+<Explain coexistence, migration, temporary workarounds, and target direction.>
+
+## Cross-Cutting Risks and Open Questions
+
+<List only material gaps that could change the architecture understanding or assessment.>

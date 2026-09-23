@@ -1,0 +1,58 @@
+schema_version: 2
+business_objective:
+  id_pattern: '^BO-[0-9]{3,}$'
+  artifact_type: 'Customer Success Plan Business Objective'
+  required_frontmatter:
+    - id
+    - artifact_type
+    - schema_version
+    - title
+    - status
+    - confidence
+    - validation
+    - objective_state
+    - planning_state
+    - primary_business_use_cases
+    - created_date
+    - last_updated_date
+  required_sections:
+    - Objective
+    - Primary Business Use Cases
+    - Business Success Measures
+    - Customer Success Plan Fields
+    - Acceptance
+technical_objective:
+  id_pattern: '^TO-[0-9]{3,}$'
+  artifact_type: 'Customer Success Plan Technical Objective'
+  required_frontmatter:
+    - id
+    - artifact_type
+    - schema_version
+    - title
+    - status
+    - confidence
+    - validation
+    - objective_state
+    - planning_state
+    - horizon
+    - impact
+    - category
+    - source_recommendations
+    - business_objectives
+    - created_date
+    - last_updated_date
+  required_sections:
+    - Objective
+    - Business Objectives
+    - Source Recommendations
+    - Architecture Rationale
+    - Technical Success Measures
+    - Customer Success Plan Fields
+    - Acceptance
+enums:
+  status: [target, transitional]
+  confidence: [high, medium, low]
+  objective_state: [draft, proposed, approved, achieved, withdrawn, superseded]
+  planning_state: [not_planned, planned, in_progress, at_risk, blocked, completed, cancelled]
+  horizon: [now, next, later]
+  impact: [high, medium, low]

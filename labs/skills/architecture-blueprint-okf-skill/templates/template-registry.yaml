@@ -1,0 +1,232 @@
+template_set: architecture-blueprint
+template_set_version: 1.0.0
+okf_version: '0.2'
+placeholder_pattern: \{\{[^}]+\}\}|<[^>\n]+>
+documents:
+  package-index:
+    kind: top-level
+    path: index.md
+    template: top-level/index.md.j2
+    schema: schemas/package-index.schema.json
+    required_headings:
+    - Purpose
+    - Start Here
+    - Package Inventory
+    - Modelling Status
+    - Folder Structure
+    - Primary Architecture Chain
+    - Scope and Maintenance Notes
+    schema_version: 1
+  high-level-architecture:
+    kind: top-level
+    path: high-level-architecture.md
+    template: top-level/high-level-architecture.md.j2
+    schema: schemas/top-level-document.schema.json
+    required_headings:
+    - Purpose and Scope
+    - Solution Summary
+    - High-Level Architecture View
+    - Business Outcomes
+    - Consumers
+    - Source Boundary
+    - Required Capabilities
+    - Data Products
+    - Principal Data Flows
+    - Quality and Trust
+    - Operations and Monitoring
+    - Technologies
+    - Architecture-Shaping Decisions
+    - Current, Transitional, and Target State
+    - Cross-Cutting Risks and Open Questions
+    schema_version: 1
+  knowledge-model:
+    kind: top-level
+    path: knowledge-model.md
+    template: top-level/knowledge-model.md.j2
+    schema: schemas/top-level-document.schema.json
+    required_headings:
+    - Purpose
+    - Conceptual Model
+    - Concepts
+    - Relationship Semantics
+    - Evidence, Status, and Confidence
+    - Identifier and File Rules
+    - Modelling Rules
+    - Folder Structure
+    - Template and Schema Governance
+    schema_version: 1
+  consumers:
+    kind: inventory
+    path: consumers.md
+    template: top-level/consumers.md.j2
+    schema: schemas/inventory.schema.json
+    inventory_prefix: CON
+    required_headings:
+    - Purpose
+    - Boundary Rules
+    - Consumer Classification
+    - Consumer Overview
+    - Detailed Consumer Definitions
+    - Consumer-to-Use-Case Matrix
+    - Cross-Consumer Architecture Implications
+    - Open Questions
+    - Maintenance Rules
+    schema_version: 1
+  sources:
+    kind: inventory
+    path: sources.md
+    template: top-level/sources.md.j2
+    schema: schemas/inventory.schema.json
+    inventory_prefix: SRC
+    required_headings:
+    - Purpose
+    - Boundary Rules
+    - Source Classification
+    - Source Overview
+    - Detailed Source Definitions
+    - Source-to-Data-Flow Matrix
+    - Source-to-Data-Product Summary
+    - Cross-Source Architecture Implications
+    - Open Questions
+    - Maintenance Rules
+    schema_version: 1
+  technologies:
+    kind: inventory
+    path: technologies.md
+    template: top-level/technologies.md.j2
+    schema: schemas/inventory.schema.json
+    inventory_prefix: TECH
+    required_headings:
+    - Purpose
+    - Boundary Rules
+    - Technology Classification
+    - Technology Overview
+    - Detailed Technology Definitions
+    - Maintenance Rules
+    schema_version: 1
+  business-use-case:
+    kind: record
+    collection: business-use-cases
+    collection_index_template: collections/index.md.j2
+    template: records/business-use-case.md.j2
+    schema: schemas/business-use-case.schema.json
+    id_prefix: UC
+    filename_pattern: ^UC-[0-9]{3}-[a-z0-9]+(?:-[a-z0-9]+)*\.md$
+    required_headings:
+    - Purpose
+    - Primary Business Question
+    - Scope and Boundary
+    - Consumers
+    - Decisions and Actions Supported
+    - Required Information
+    - Timing and Service Expectations
+    - Required Capabilities
+    - Supporting Data Products
+    - Open Questions and Gaps
+    - Current Assessment
+    schema_version: 1
+  required-capability:
+    kind: record
+    collection: required-capabilities
+    collection_index_template: collections/index.md.j2
+    template: records/required-capability.md.j2
+    schema: schemas/required-capability.schema.json
+    id_prefix: RC
+    filename_pattern: ^RC-[0-9]{3}-[a-z0-9]+(?:-[a-z0-9]+)*\.md$
+    required_headings:
+    - Capability Statement
+    - Required By
+    - Functional Requirements
+    - Non-Functional Requirements
+    - Current Realization
+    - Open Questions and Gaps
+    - Assessment Readiness
+    schema_version: 1
+  data-product:
+    kind: record
+    collection: data-products
+    collection_index_template: collections/index.md.j2
+    template: records/data-product.md.j2
+    schema: schemas/data-product.schema.json
+    id_prefix: DP
+    filename_pattern: ^DP-[0-9]{3}-[a-z0-9]+(?:-[a-z0-9]+)*\.md$
+    required_headings:
+    - Product Purpose
+    - Consumers
+    - Information Provided
+    - Delivery Form
+    - Business Use Cases Supported
+    - Required Capabilities Provided
+    - Data Flows
+    - Quality Controls
+    - Operational Capabilities
+    - Architecture Decisions
+    - Open Questions and Gaps
+    schema_version: 1
+  data-flow:
+    kind: record
+    collection: data-flows
+    collection_index_template: collections/index.md.j2
+    template: records/data-flow.md.j2
+    schema: schemas/data-flow.schema.json
+    id_prefix: DF
+    filename_pattern: ^DF-[0-9]{3}-[a-z0-9]+(?:-[a-z0-9]+)*\.md$
+    required_headings:
+    - Purpose
+    - Source and Target
+    - Flow Steps
+    - Data Products Produced or Updated
+    - Quality Controls
+    - Operational Capabilities
+    - Architecture Decisions
+    - Risks and Open Questions
+    schema_version: 1
+  quality-control:
+    kind: record
+    collection: quality-controls
+    collection_index_template: collections/index.md.j2
+    template: records/quality-control.md.j2
+    schema: schemas/quality-control.schema.json
+    id_prefix: QC
+    filename_pattern: ^QC-[0-9]{3}-[a-z0-9]+(?:-[a-z0-9]+)*\.md$
+    required_headings:
+    - Control Objective
+    - Control Type
+    - Control Method
+    - Failure or Exception Action
+    - Applies To
+    - Open Questions and Gaps
+    schema_version: 1
+  operational-capability:
+    kind: record
+    collection: operational-capabilities
+    collection_index_template: collections/index.md.j2
+    template: records/operational-capability.md.j2
+    schema: schemas/operational-capability.schema.json
+    id_prefix: OC
+    filename_pattern: ^OC-[0-9]{3}-[a-z0-9]+(?:-[a-z0-9]+)*\.md$
+    required_headings:
+    - Capability Statement
+    - Operational Behaviours
+    - Operates or Supports
+    - Architecture Decisions
+    - Open Questions and Gaps
+    schema_version: 1
+  architecture-decision-record:
+    kind: record
+    collection: architecture-decision-records
+    collection_index_template: collections/index.md.j2
+    template: records/architecture-decision-record.md.j2
+    schema: schemas/architecture-decision-record.schema.json
+    id_prefix: ADR
+    filename_pattern: ^ADR-[0-9]{3}-[a-z0-9]+(?:-[a-z0-9]+)*\.md$
+    required_headings:
+    - Status
+    - Context
+    - Decision
+    - Rationale
+    - Alternatives Considered or Not Documented
+    - Consequences
+    - Affected Blueprint Records
+    - Open Items
+    schema_version: 1

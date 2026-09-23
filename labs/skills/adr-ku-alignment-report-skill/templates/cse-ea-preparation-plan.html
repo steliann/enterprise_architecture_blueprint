@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>&lt;Account&gt; — CSE / EA Preparation Plan</title>
+<style>
+body{font-family:Arial,sans-serif;background:#f4f7f8;color:#17324d;margin:0}.wrap{max-width:1050px;margin:auto;padding:28px}.phase{background:#fff;border:1px solid #dbe4e8;border-radius:14px;padding:20px;margin:14px 0}.phase.done{background:#dff3e7;border-color:#7bbb96}.head{display:flex;justify-content:space-between;gap:16px}.phase h2{margin:0}.subtask{background:rgba(255,255,255,.7);border:1px solid #e2e8eb;border-radius:9px;padding:10px 12px;margin:9px 0}.refs a{margin-right:8px}label{font-weight:700}
+</style>
+</head>
+<body data-plan-id="&lt;account&gt;-adrku-plan"><div class="wrap">
+<h1>&lt;Account&gt; — CSE / EA Preparation Plan</h1>
+<p>Derived from the canonical ADR–KU Alignment Report. The customer workshop is one milestone in a continuing account cycle.</p>
+
+<!-- Use exactly these seven top-level phases. Add account-specific work only as subtasks. -->
+<div id="plan">
+<section class="phase" data-phase="prepare"><div class="head"><h2>1. Prepare</h2><label><input type="checkbox"> Done</label></div><div class="subtask">&lt;subtask derived from report&gt;</div></section>
+<section class="phase" data-phase="validate"><div class="head"><h2>2. Validate</h2><label><input type="checkbox"> Done</label></div><div class="subtask">&lt;subtask derived from report&gt;</div></section>
+<section class="phase" data-phase="workshop"><div class="head"><h2>3. Workshop</h2><label><input type="checkbox"> Done</label></div><div class="subtask">&lt;subtask derived from report&gt;</div></section>
+<section class="phase" data-phase="govern"><div class="head"><h2>4. Govern</h2><label><input type="checkbox"> Done</label></div><div class="subtask">&lt;subtask derived from report&gt;</div></section>
+<section class="phase" data-phase="execute"><div class="head"><h2>5. Execute</h2><label><input type="checkbox"> Done</label></div><div class="subtask">&lt;subtask derived from report&gt;</div></section>
+<section class="phase" data-phase="discover"><div class="head"><h2>6. Discover</h2><label><input type="checkbox"> Done</label></div><div class="subtask">&lt;subtask derived from report&gt;</div></section>
+<section class="phase" data-phase="refresh"><div class="head"><h2>7. Refresh</h2><label><input type="checkbox"> Done</label></div><div class="subtask">&lt;subtask derived from report&gt;</div></section>
+</div>
+</div>
+<script>
+const key='cse-ea-plan:'+document.body.dataset.planId;let state=JSON.parse(localStorage.getItem(key)||'{}');document.querySelectorAll('.phase').forEach(p=>{let c=p.querySelector('input');c.checked=!!state[p.dataset.phase];p.classList.toggle('done',c.checked);c.onchange=()=>{state[p.dataset.phase]=c.checked;localStorage.setItem(key,JSON.stringify(state));p.classList.toggle('done',c.checked)}})
+</script>
+</body></html>

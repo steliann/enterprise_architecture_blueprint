@@ -1,0 +1,76 @@
+---
+type: "source-inventory"
+artifact_type: "Architecture Blueprint"
+schema_version: 1
+document_type: "Source Inventory"
+customer: "{{ customer }}"
+solution: "{{ solution }}"
+status: "Working"
+last_updated: "{{ date }}"
+record_pattern: "SRC-NNN"
+---
+
+# {{ customer }} — {{ solution }} Sources
+
+## Purpose
+
+Define the real systems and providers outside the principal solution boundary that originate or externally curate data.
+
+## Boundary Rules
+
+Include operational systems, partner platforms, authoritative external datasets, and external providers. Exclude staging, queues, transit buckets, internal warehouse schemas, file formats, and downstream delivery products.
+
+## Source Classification
+
+| Classification | Meaning |
+| --- | --- |
+| Operational system | Supports a business process and originates operational records. |
+| Finance system | Originates financial commitments, payments, or ledger records. |
+| Partner or council source | Externally managed organisational source. |
+| External dataset or provider | Curates reference, classification, or outcome information. |
+| Legacy source | Retained for historical or transitional data. |
+
+## Source Overview
+
+| ID | Source | Classification | Information supplied | Lifecycle |
+| --- | --- | --- | --- | --- |
+
+## Detailed Source Definitions
+
+### SRC-001 — <Source Name>
+
+**Definition.** <Describe the real external source.>
+
+**Information supplied.** <Describe the relevant data.>
+
+**Authoritative role.** <State confirmed authority or leave open.>
+
+**Interface and cadence.** <Describe logical interface without modelling internal stages as sources.>
+
+**Lifecycle.** <Current, transitional, target, historical, or deprecated.>
+
+**Related records.** <DF and DP links.>
+
+**Open points.** <Ownership, contract, schema, cadence, retention, or transition questions.>
+
+## Source-to-Data-Flow Matrix
+
+| Source | Data flows |
+| --- | --- |
+
+## Source-to-Data-Product Summary
+
+| Source | Products informed |
+| --- | --- |
+
+## Cross-Source Architecture Implications
+
+<Summarize source fragmentation, authority, change-management, reconciliation, and lifecycle implications.>
+
+## Open Questions
+
+<List unresolved source boundaries and contracts.>
+
+## Maintenance Rules
+
+Assign stable SRC IDs. Do not create source entries for transport services, internal stages, or physical formats.

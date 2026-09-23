@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Integrated Architecture Blueprint Review frontmatter",
+  "type": "object",
+  "required": ["artifact_type", "blueprint", "blueprint_version", "review_version", "review_date", "overall_coverage_score", "status", "confidence", "validation"],
+  "properties": {
+    "artifact_type": {"const": "Architecture Blueprint Review"},
+    "overall_coverage_score": {"type": "integer", "minimum": 0, "maximum": 100}
+  }
+}

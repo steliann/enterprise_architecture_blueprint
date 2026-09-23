@@ -1,0 +1,34 @@
+coverage_rubric:
+  model_version: "1.0"
+  normalize_enabled_weights: true
+  dimensions:
+    required_field_completeness:
+      enabled: true
+      weight: 10
+    relationship_integrity:
+      enabled: true
+      weight: 15
+    ownership_and_accountability:
+      enabled: true
+      weight: 15
+    lifecycle_state_clarity:
+      enabled: true
+      weight: 10
+    end_to_end_traceability:
+      enabled: true
+      weight: 15
+    authority_and_interface_contracts:
+      enabled: true
+      weight: 15
+    control_thresholds_and_acceptance:
+      enabled: true
+      weight: 10
+    operations_monitoring_recovery:
+      enabled: true
+      weight: 10
+    security_retention_access:
+      enabled: false
+      weight: 5
+    decision_currency_and_rationale:
+      enabled: false
+      weight: 5

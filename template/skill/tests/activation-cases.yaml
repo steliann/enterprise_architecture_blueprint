@@ -1,0 +1,3 @@
+- case: positive
+  prompt: "Example request that should activate this skill"
+  expected: activate

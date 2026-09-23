@@ -1,0 +1,71 @@
+style_system: qlik_architecture_customer_reporting
+version: "1.0"
+
+note: >
+  Derived reusable design language only. Original reference Word and PowerPoint
+  files are intentionally not included in this skill package.
+
+palette:
+  green: "009845"
+  dark_green: "007133"
+  teal: "007C8A"
+  deep_teal: "006580"
+  dark_blue: "24486E"
+  navy: "19416C"
+  dark_text: "454659"
+  slide_title: "545659"
+  body_text: "333333"
+  muted_text: "6E7478"
+  light_green: "E5F4EF"
+  light_green_slide: "EAF5EF"
+  light_teal: "E6F3F4"
+  light_blue: "EDF5F7"
+  light_grey: "F2F4F4"
+  slide_light_grey: "F3F4F4"
+  border: "4B8993"
+  rule: "D7DADB"
+  white: "FFFFFF"
+  warning_red: "C74634"
+  warning_amber: "B57B00"
+
+typography:
+  body: "Inter"
+  body_fallback:
+    - "Arial"
+    - "Aptos"
+  display_serif: "Noto Serif"
+  display_serif_fallback:
+    - "Georgia"
+  word:
+    body_pt: 10.3
+    h1_pt: 18
+    h2_pt: 12.6
+    small_heading_pt: 10.6
+    table_pt: 8.2
+  powerpoint:
+    title_pt: 25
+    subtitle_pt: 13.5
+    body_pt: 11
+    small_pt: 9
+    kpi_pt: 34
+
+word:
+  page_size: A4
+  top_margin_in: 0.65
+  bottom_margin_in: 0.65
+  left_margin_in: 0.72
+  right_margin_in: 0.72
+  table_header_fill: "007C8A"
+  alternate_table_header_fill: "007133"
+  callout_fill_primary: "E5F4EF"
+  callout_fill_secondary: "E6F3F4"
+
+powerpoint:
+  layout: "16:9"
+  background: "FFFFFF"
+  title_x_in: 0.62
+  title_y_in: 0.42
+  footer_y_in: 7.04
+  content_left_in: 0.62
+  content_right_in: 12.7
+  preferred_max_body_pt_reduction: 1.5

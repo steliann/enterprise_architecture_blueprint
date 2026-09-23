@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "quality-control",
+  "type": "object",
+  "required": [
+    "type",
+    "artifact_type",
+    "schema_version",
+    "id",
+    "title",
+    "status",
+    "confidence",
+    "control_type",
+    "applies_to",
+    "created_on",
+    "last_updated"
+  ],
+  "properties": {
+    "type": {
+      "const": "quality-control"
+    },
+    "artifact_type": {
+      "const": "Quality Control"
+    },
+    "schema_version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "id": {
+      "pattern": "^QC-[0-9]{3}$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "$ref": "#/$defs/status"
+    },
+    "confidence": {
+      "$ref": "#/$defs/confidence"
+    },
+    "control_type": {
+      "enum": [
+        "Preventive",
+        "Detective",
+        "Corrective",
+        "Mixed"
+      ]
+    },
+    "applies_to": {
+      "$ref": "#/$defs/idList"
+    },
+    "created_on": {
+      "$ref": "#/$defs/date"
+    },
+    "last_updated": {
+      "$ref": "#/$defs/date"
+    }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "idList": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^(UC|RC|DP|DF|QC|OC|ADR)-[0-9]{3}$"
+      },
+      "uniqueItems": true
+    },
+    "status": {
+      "enum": [
+        "Confirmed",
+        "Candidate",
+        "Target",
+        "Transitional",
+        "Deprecated",
+        "Superseded"
+      ]
+    },
+    "confidence": {
+      "enum": [
+        "High",
+        "Medium",
+        "Low"
+      ]
+    },
+    "date": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    }
+  }
+}

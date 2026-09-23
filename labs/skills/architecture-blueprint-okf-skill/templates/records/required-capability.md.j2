@@ -1,0 +1,47 @@
+---
+type: "required-capability"
+artifact_type: "Required Capability"
+schema_version: 1
+id: "{{ id }}"
+title: "{{ title }}"
+status: "{{ status | default('Candidate') }}"
+confidence: "{{ confidence | default('Low') }}"
+capability_type: "{{ capability_type | default('Mixed') }}"
+related_use_cases: {{ related_use_cases | default([]) | tojson }}
+realized_by: {{ realized_by | default([]) | tojson }}
+created_on: "{{ date }}"
+last_updated: "{{ date }}"
+---
+
+# {{ id }} — {{ title }}
+
+## Capability Statement
+
+<State the implementation-independent capability.>
+
+## Required By
+
+- <UC link.>
+
+## Functional Requirements
+
+- <Required behaviour.>
+
+## Non-Functional Requirements
+
+- <Freshness, completeness, security, reliability, performance, auditability, or recoverability requirement.>
+
+## Current Realization
+
+- <DP, DF, QC, OC, or technology link, with current/target status.>
+
+## Open Questions and Gaps
+
+| Open question or gap | Why it matters |
+| --- | --- |
+| <Question> | <Impact> |
+
+## Assessment Readiness
+
+**Status:** {{ status | default('Candidate') }}  
+**Confidence:** {{ confidence | default('Low') }}

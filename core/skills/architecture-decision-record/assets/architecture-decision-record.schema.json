@@ -1,0 +1,234 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://qlik.internal/schemas/architecture-decision-record.schema.json",
+  "title": "Architecture Decision Record metadata",
+  "description": "YAML front matter model for Qlik/Talend enterprise-architecture Decision Records. Pair with scripts/validate_adr.py, which enforces the Markdown body contract.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "yaml_version",
+    "title",
+    "status",
+    "date",
+    "decision_owner",
+    "decision_type",
+    "architecture_domain",
+    "decision_scope",
+    "decision_level",
+    "confidence",
+    "technology_scope",
+    "used_ai_to_prepare"
+  ],
+  "definitions": {
+    "nullableStringList": {
+      "oneOf": [
+        {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        { "type": "null" }
+      ]
+    },
+    "adrId": {
+      "type": "string",
+      "pattern": "^(?:[A-Z][A-Z0-9]{1,9}-)?ADR-[0-9]{3}$"
+    },
+    "nullableAdrId": {
+      "oneOf": [
+        { "$ref": "#/definitions/adrId" },
+        { "type": "null" }
+      ]
+    },
+    "isoDate": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "format": "date"
+    }
+  },
+  "properties": {
+    "id": {
+      "description": "ADR-NNN for repository-level decisions, or SCOPE-ADR-NNN when scoped to a customer, program, platform, or workstream. Three-digit sequence. Never reused. XXX is tolerated as a deliberate placeholder by the validator but not by this schema.",
+      "$ref": "#/definitions/adrId"
+    },
+    "yaml_version": {
+      "description": "Metadata model version this record follows.",
+      "type": "integer",
+      "const": 1
+    },
+    "title": {
+      "description": "Names the decision, not the topic. Preferred pattern: Use [approach] for [architecture role].",
+      "type": "string",
+      "minLength": 10
+    },
+    "status": {
+      "description": "Governance weight of the record. Accepted is append-only from that point.",
+      "type": "string",
+      "enum": ["Draft", "Proposed", "Accepted", "Superseded", "Deprecated"]
+    },
+    "date": {
+      "description": "Date the decision was recorded or made.",
+      "$ref": "#/definitions/isoDate"
+    },
+    "review_by": {
+      "description": "Next planned review date, tied to a real cycle or milestone. Must be later than date.",
+      "oneOf": [
+        { "$ref": "#/definitions/isoDate" },
+        { "type": "null" }
+      ]
+    },
+    "decision_owner": {
+      "description": "Person or role accountable for the decision. Not necessarily the author.",
+      "type": "string",
+      "minLength": 2
+    },
+    "contributors": {
+      "description": "People who contributed materially to the decision, option assessment, constraints, or review.",
+      "$ref": "#/definitions/nullableStringList"
+    },
+    "decision_type": {
+      "type": "string",
+      "const": "Architecture"
+    },
+    "architecture_domain": {
+      "description": "The dominant domain affected, not every domain touched.",
+      "type": "string",
+      "enum": [
+        "Data",
+        "Application",
+        "Integration",
+        "Security",
+        "Platform",
+        "Operations",
+        "Governance",
+        "Other"
+      ]
+    },
+    "decision_scope": {
+      "description": "Boundary of the decision. Prevents a customer-specific decision being mistaken for reusable guidance.",
+      "type": "string",
+      "enum": [
+        "Customer",
+        "Product Platform",
+        "Program",
+        "Enterprise",
+        "Reference Architecture"
+      ]
+    },
+    "decision_level": {
+      "description": "Strategic changes direction, Tactical selects a pattern for a known use case, Operational records a supportable operating choice.",
+      "type": "string",
+      "enum": ["Strategic", "Tactical", "Operational"]
+    },
+    "confidence": {
+      "description": "Low is legitimate for Draft and Proposed. Never for Accepted.",
+      "type": "string",
+      "enum": ["High", "Medium", "Low"]
+    },
+    "technology_scope": {
+      "description": "Only products and technologies materially involved in the decision.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["qlik", "talend", "third_party"],
+      "properties": {
+        "qlik": { "$ref": "#/definitions/nullableStringList" },
+        "talend": { "$ref": "#/definitions/nullableStringList" },
+        "third_party": { "$ref": "#/definitions/nullableStringList" }
+      }
+    },
+    "related_patterns": {
+      "description": "Supporting Knowledge Units. Preferred form: 'ID - Title (relative/path.md)'. Real IDs only.",
+      "$ref": "#/definitions/nullableStringList"
+    },
+    "related_adrs": {
+      "description": "Peer ADRs worth reading alongside this one. Not for relationships that are really supersessions.",
+      "oneOf": [
+        {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/definitions/adrId" }
+        },
+        { "type": "null" }
+      ]
+    },
+    "impacted_architecture_views": {
+      "description": "Architecture views affected: Governance View, Data Flow View, Operational View, Security View, Platform Deployment View, or repository-specific views.",
+      "$ref": "#/definitions/nullableStringList"
+    },
+    "related_assets": {
+      "description": "Diagrams, design documents, playbooks, workshop outputs, assessments, templates.",
+      "$ref": "#/definitions/nullableStringList"
+    },
+    "supersedes": {
+      "description": "The ADR this one replaces. Null if original.",
+      "$ref": "#/definitions/nullableAdrId"
+    },
+    "superseded_by": {
+      "description": "The ADR that replaces this one. Required when status is Superseded, otherwise normally null.",
+      "$ref": "#/definitions/nullableAdrId"
+    },
+    "used_ai_to_prepare": {
+      "description": "Whether AI helped prepare, review, or refine the record. Provenance, not a weakness.",
+      "type": "boolean"
+    },
+    "ai_solutions_used": {
+      "description": "Must be a non-empty list when used_ai_to_prepare is true, and null when false.",
+      "$ref": "#/definitions/nullableStringList"
+    },
+    "tags": {
+      "description": "Lowercase, hyphenated search terms.",
+      "oneOf": [
+        {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          }
+        },
+        { "type": "null" }
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "status": { "const": "Superseded" } },
+        "required": ["status"]
+      },
+      "then": {
+        "properties": { "superseded_by": { "$ref": "#/definitions/adrId" } },
+        "required": ["superseded_by"]
+      }
+    },
+    {
+      "if": {
+        "properties": { "status": { "const": "Accepted" } },
+        "required": ["status"]
+      },
+      "then": {
+        "properties": { "confidence": { "enum": ["High", "Medium"] } }
+      }
+    },
+    {
+      "if": {
+        "properties": { "used_ai_to_prepare": { "const": true } },
+        "required": ["used_ai_to_prepare"]
+      },
+      "then": {
+        "properties": {
+          "ai_solutions_used": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string", "minLength": 1 }
+          }
+        },
+        "required": ["ai_solutions_used"]
+      },
+      "else": {
+        "properties": { "ai_solutions_used": { "type": "null" } }
+      }
+    }
+  ]
+}

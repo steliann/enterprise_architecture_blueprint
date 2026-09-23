@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Architecture Gap frontmatter",
+  "type": "object",
+  "required": ["id", "title", "artifact_type", "status", "confidence", "validation", "state", "priority", "impact", "recommendations"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^GAP-[0-9]{3,}$"},
+    "title": {"type": "string", "minLength": 3},
+    "artifact_type": {"const": "Architecture Gap"},
+    "status": {"enum": ["current", "planned", "target", "transitional", "deprecated", "retired"]},
+    "confidence": {"enum": ["high", "medium", "low", "not_assessed"]},
+    "validation": {"enum": ["confirmed", "needs_correction", "incomplete", "unable_to_validate", "not_applicable"]},
+    "state": {"enum": ["candidate", "active", "planned", "in_progress", "mitigated", "closed", "absorbed", "superseded", "rejected"]},
+    "priority": {"type": "string"},
+    "recommendations": {"type": "array", "items": {"type": "string", "pattern": "^REC-[0-9]{3,}$"}}
+  }
+}

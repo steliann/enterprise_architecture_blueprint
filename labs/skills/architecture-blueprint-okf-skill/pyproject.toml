@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "architecture-blueprint-okf"
+version = "1.0.0"
+description = "Generate and validate maintainable Architecture Blueprint OKF packages"
+requires-python = ">=3.10"
+dependencies = [
+  "PyYAML>=6.0,<7",
+  "jsonschema>=4.20,<5",
+  "Jinja2>=3.1,<4"
+]
+
+[project.scripts]
+blueprint-okf = "architecture_blueprint_okf.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

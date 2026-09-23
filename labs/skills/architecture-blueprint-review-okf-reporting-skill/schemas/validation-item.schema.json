@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Architecture Validation Item frontmatter",
+  "type": "object",
+  "required": ["id", "title", "artifact_type", "status", "confidence", "validation", "state"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^VAL-[0-9]{3,}$"},
+    "artifact_type": {"const": "Architecture Validation Item"},
+    "state": {"enum": ["open", "resolved", "accepted_limitation", "superseded"]}
+  }
+}

@@ -1,0 +1,64 @@
+---
+type: "technology-inventory"
+artifact_type: "Architecture Blueprint"
+schema_version: 1
+document_type: "Technology Inventory"
+customer: "{{ customer }}"
+solution: "{{ solution }}"
+status: "Working"
+last_updated: "{{ date }}"
+record_pattern: "TECH-NNN"
+---
+
+# {{ customer }} — {{ solution }} Technologies
+
+## Purpose
+
+Define the technology products, managed services, and technical platforms that materially realize or constrain the architecture.
+
+## Boundary Rules
+
+Include identifiable storage engines, integration platforms, event services, analytical platforms, application platforms, search services, and material storage or exchange patterns. Keep sources and data products in their own inventories even when implemented using named technology.
+
+## Technology Classification
+
+| Classification | Meaning |
+| --- | --- |
+| Data storage platform | Stores analytical, operational, or exchange data. |
+| Data integration platform | Acquires, transforms, orchestrates, or delivers data. |
+| Event integration services | Carries and processes event-driven data. |
+| Analytical consumption platform | Enables interactive consumption of governed information. |
+| Operational application platform | Hosts a business process integrated with the solution. |
+| Search and indexing platform | Indexes data for search and discovery. |
+| Enterprise application platform | Provides an enterprise capability and integration boundary. |
+
+## Technology Overview
+
+| ID | Technology | Classification | Deployment context | Lifecycle |
+| --- | --- | --- | --- | --- |
+
+## Detailed Technology Definitions
+
+### TECH-001 — <Technology Name>
+
+**Definition.** <Define the product, managed service, or material pattern.>
+
+**Classification.** <Classification.>
+
+**Architectural role.** <How it realizes or constrains the solution.>
+
+**Deployment context.** <Known deployment context and explicit unknowns.>
+
+**Lifecycle.** <Current, strategic, transitional, target, or retired.>
+
+**Related records.** <ADR, DF, DP, QC, OC, SRC, or UC links.>
+
+**Key open points.** <Version, topology, ownership, security, capacity, support, or lifecycle questions.>
+
+## Maintenance Rules
+
+- Add named technologies only when they materially shape the architecture.
+- Assign stable TECH IDs and never reuse retired IDs.
+- Record replacement and coexistence explicitly.
+- Keep unknown versions, owners, regions, and lifecycle dates visible.
+- Review the inventory whenever an ADR introduces, replaces, or retires technology.

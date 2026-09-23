@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Combined Coverage frontmatter",
+  "type": "object",
+  "required": ["artifact_type", "document_type", "coverage_model_version", "coverage_model_hash", "overall_score", "overall_level"],
+  "properties": {
+    "coverage_model_version": {"type": "string", "minLength": 1},
+    "coverage_model_hash": {"type": "string", "pattern": "^[0-9a-f]{16}$"},
+    "overall_score": {"type": "integer", "minimum": 0, "maximum": 100},
+    "overall_level": {"type": "string", "minLength": 1}
+  }
+}

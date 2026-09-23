@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "required-capability",
+  "type": "object",
+  "required": [
+    "type",
+    "artifact_type",
+    "schema_version",
+    "id",
+    "title",
+    "status",
+    "confidence",
+    "capability_type",
+    "related_use_cases",
+    "realized_by",
+    "created_on",
+    "last_updated"
+  ],
+  "properties": {
+    "type": {
+      "const": "required-capability"
+    },
+    "artifact_type": {
+      "const": "Required Capability"
+    },
+    "schema_version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "id": {
+      "pattern": "^RC-[0-9]{3}$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "$ref": "#/$defs/status"
+    },
+    "confidence": {
+      "$ref": "#/$defs/confidence"
+    },
+    "capability_type": {
+      "enum": [
+        "Functional",
+        "Non-Functional",
+        "Mixed"
+      ]
+    },
+    "related_use_cases": {
+      "type": "array",
+      "items": {
+        "pattern": "^UC-[0-9]{3}$"
+      },
+      "uniqueItems": true
+    },
+    "realized_by": {
+      "$ref": "#/$defs/idList"
+    },
+    "created_on": {
+      "$ref": "#/$defs/date"
+    },
+    "last_updated": {
+      "$ref": "#/$defs/date"
+    }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "idList": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^(UC|RC|DP|DF|QC|OC|ADR)-[0-9]{3}$"
+      },
+      "uniqueItems": true
+    },
+    "status": {
+      "enum": [
+        "Confirmed",
+        "Candidate",
+        "Target",
+        "Transitional",
+        "Deprecated",
+        "Superseded"
+      ]
+    },
+    "confidence": {
+      "enum": [
+        "High",
+        "Medium",
+        "Low"
+      ]
+    },
+    "date": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    }
+  }
+}

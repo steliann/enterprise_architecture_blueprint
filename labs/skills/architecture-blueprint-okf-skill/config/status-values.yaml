@@ -1,0 +1,26 @@
+confidence:
+  - High
+  - Medium
+  - Low
+record_status:
+  - Confirmed
+  - Candidate
+  - Target
+  - Transitional
+  - Deprecated
+  - Superseded
+adr_status:
+  - Proposed
+  - Accepted
+  - Superseded
+  - Deprecated
+package_status:
+  - Working
+  - Validated
+  - Archived
+state:
+  - Current
+  - Transitional
+  - Target
+  - Historical
+  - Unknown

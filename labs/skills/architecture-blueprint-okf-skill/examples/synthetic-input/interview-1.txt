@@ -1,0 +1,6 @@
+00:02:10 Customer: Finance analysts need a monthly view of actual payments matched to approved commitments. Real time is not required.
+00:03:05 Customer: The grant platform sends award and commitment records through a nightly database extract.
+00:04:20 Customer: The finance platform provides payment actuals through an API.
+00:05:15 Customer: We publish approved awards to the public each month, but sensitive records must be excluded.
+00:06:45 Customer: A failed duplicate check stops the build and the last successful product remains available.
+00:08:10 Customer: We selected a managed relational database for the analytical store. The original comparison is not documented.

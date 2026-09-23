@@ -1,0 +1,56 @@
+---
+type: "architecture-decision-record"
+artifact_type: "Architecture Decision Record"
+schema_version: 1
+id: "{{ id }}"
+title: "{{ title }}"
+status: "{{ status | default('Proposed') }}"
+confidence: "{{ confidence | default('Low') }}"
+decision_kind: "{{ decision_kind | default('Retrospective') }}"
+decision_date: {{ decision_date | default('null') }}
+affected_artifacts: {{ affected_artifacts | default([]) | tojson }}
+created_on: "{{ date }}"
+last_updated: "{{ date }}"
+---
+
+# {{ id }} — {{ title }}
+
+## Status
+
+{{ status | default('Proposed') }} — {{ decision_kind | default('Retrospective') }}
+
+## Context
+
+<Describe the forces, constraints, and problem.>
+
+## Decision
+
+<State the architecture choice clearly.>
+
+## Rationale
+
+<Separate confirmed original rationale from inferred or observed benefits. State when the original rationale is unknown.>
+
+## Alternatives Considered or Not Documented
+
+- <Alternative, or state that alternatives were not documented.>
+
+## Consequences
+
+### Positive
+
+- <Benefit.>
+
+### Negative and Trade-Offs
+
+- <Cost, risk, lock-in, complexity, or limitation.>
+
+## Affected Blueprint Records
+
+- <DP, DF, QC, OC, SRC, TECH, or other record link.>
+
+## Open Items
+
+| Open item | Why it matters |
+| --- | --- |
+| <Decision owner, date, rationale, review trigger, or acceptance question> | <Impact> |

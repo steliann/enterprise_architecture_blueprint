@@ -1,0 +1,69 @@
+---
+type: "consumer-inventory"
+artifact_type: "Architecture Blueprint"
+schema_version: 1
+document_type: "Consumer Inventory"
+customer: "{{ customer }}"
+solution: "{{ solution }}"
+status: "Working"
+last_updated: "{{ date }}"
+record_pattern: "CON-NNN"
+---
+
+# {{ customer }} — {{ solution }} Consumers
+
+## Purpose
+
+Define the people, teams, organisations, public audiences, and system consumers that participate in business outcomes or consume managed information.
+
+## Boundary Rules
+
+<Define included and excluded consumer concepts.>
+
+## Consumer Classification
+
+| Classification | Meaning |
+| --- | --- |
+| Analytical | Uses information for exploration, reporting, or decisions. |
+| Operational | Uses information to perform or support a business process. |
+| Governance and assurance | Owns, approves, controls, or assures information use. |
+| External or public | Receives information outside the organisation. |
+| System consumer | Consumes data through an automated interface. |
+
+## Consumer Overview
+
+| ID | Consumer | Classification | Primary need | Main access pattern |
+| --- | --- | --- | --- | --- |
+
+## Detailed Consumer Definitions
+
+### CON-001 — <Consumer Name>
+
+**Definition.** <Define the group clearly.>
+
+**Purpose and decisions.** <What they are trying to achieve.>
+
+**Information needs.** <What information they require.>
+
+**Access pattern.** <How they receive or use it.>
+
+**Related records.** <UC and DP links.>
+
+**Open points.** <Ownership, access, service, or scope questions.>
+
+## Consumer-to-Use-Case Matrix
+
+| Consumer | Related use cases |
+| --- | --- |
+
+## Cross-Consumer Architecture Implications
+
+<Summarize common access, security, usability, timeliness, or governance implications.>
+
+## Open Questions
+
+<List unresolved consumer boundaries, ownership, access, or service expectations.>
+
+## Maintenance Rules
+
+Assign stable CON IDs, consolidate aliases, and preserve distinct personas when their outcomes or access needs materially differ.

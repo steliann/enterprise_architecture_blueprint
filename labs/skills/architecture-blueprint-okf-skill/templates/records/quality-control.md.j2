@@ -1,0 +1,41 @@
+---
+type: "quality-control"
+artifact_type: "Quality Control"
+schema_version: 1
+id: "{{ id }}"
+title: "{{ title }}"
+status: "{{ status | default('Candidate') }}"
+confidence: "{{ confidence | default('Low') }}"
+control_type: "{{ control_type | default('Detective') }}"
+applies_to: {{ applies_to | default([]) | tojson }}
+created_on: "{{ date }}"
+last_updated: "{{ date }}"
+---
+
+# {{ id }} — {{ title }}
+
+## Control Objective
+
+<State the trust or disclosure risk addressed.>
+
+## Control Type
+
+{{ control_type | default('Detective') }}
+
+## Control Method
+
+<Describe how and when the control operates.>
+
+## Failure or Exception Action
+
+<Describe stop, quarantine, alert, correction, approval, or source-remediation action.>
+
+## Applies To
+
+- <DF or DP link.>
+
+## Open Questions and Gaps
+
+| Open question or gap | Why it matters |
+| --- | --- |
+| <Question> | <Impact> |

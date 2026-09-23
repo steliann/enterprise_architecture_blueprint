@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ACME Industrial Supply Co. — CSE / EA Preparation Plan</title>
+<style>
+:root{
+  --ink:#17324d;
+  --muted:#637585;
+  --bg:#f4f7f8;
+  --card:#ffffff;
+  --line:#dbe4e8;
+  --teal:#287d80;
+  --teal-soft:#eaf4f3;
+  --done:#dff3e7;
+  --done-border:#7bbb96;
+  --done-ink:#1f5a3d;
+  --navy:#17324d;
+  --amber:#d69a32;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Inter,Segoe UI,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.5;
+}
+.hero{
+  background:linear-gradient(135deg,#132d46 0%,#1e5966 70%,#2b7f80 100%);
+  color:#fff;
+  padding:48px 0 38px;
+}
+.wrap{max-width:1160px;margin:0 auto;padding:0 28px}
+.kicker{
+  font-size:12px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-weight:800;
+  opacity:.85;
+}
+h1{font-size:42px;line-height:1.06;margin:9px 0 12px;max-width:920px}
+.hero p{font-size:18px;max-width:880px;margin:0;opacity:.92}
+.hero-meta{display:flex;gap:9px;flex-wrap:wrap;margin-top:22px}
+.chip{
+  padding:7px 10px;
+  border:1px solid rgba(255,255,255,.28);
+  background:rgba(255,255,255,.08);
+  border-radius:999px;
+  font-size:12px;
+}
+.notice{
+  margin-top:22px;
+  border-left:4px solid var(--amber);
+  padding:11px 14px;
+  background:#fff7e6;
+  color:#704d13;
+  border-radius:6px;
+}
+main{padding:30px 0 42px}
+.section-head{margin-bottom:18px}
+.section-head h2{font-size:28px;margin:4px 0 6px}
+.section-head p{margin:0;color:var(--muted);max-width:900px}
+.plan{display:grid;gap:16px}
+.phase{
+  position:relative;
+  display:grid;
+  grid-template-columns:86px 1fr;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 4px 14px rgba(20,47,72,.05);
+  transition:background .2s,border-color .2s,transform .2s;
+}
+.phase.done{
+  background:var(--done);
+  border-color:var(--done-border);
+}
+.phase.done .phase-num{
+  background:#cfe9da;
+  color:var(--done-ink);
+}
+.phase-num{
+  background:var(--teal-soft);
+  color:var(--teal);
+  font-size:24px;
+  font-weight:850;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  padding-top:22px;
+  transition:background .2s,color .2s;
+}
+.phase-content{padding:20px 22px 22px}
+.phase-top{
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  align-items:flex-start;
+}
+.phase-title .label{
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  color:var(--teal);
+  font-weight:850;
+  margin-bottom:3px;
+}
+.phase-title h3{font-size:23px;margin:0}
+.phase.done .phase-title .label,
+.phase.done .phase-title h3{color:var(--done-ink)}
+.done-control{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  border:1px solid #bfd0d7;
+  background:#fff;
+  padding:7px 10px;
+  border-radius:10px;
+  cursor:pointer;
+  user-select:none;
+  white-space:nowrap;
+  font-size:12px;
+  font-weight:800;
+  color:#445d6e;
+}
+.phase.done .done-control{
+  border-color:#79b592;
+  color:var(--done-ink);
+  background:#f4fff8;
+}
+.done-control input{
+  width:17px;height:17px;
+  accent-color:#2f7f62;
+  cursor:pointer;
+}
+.phase-summary{margin:9px 0 13px;color:#3d5364}
+.subtasks{
+  display:grid;
+  gap:10px;
+  margin-top:10px;
+}
+.subtask{
+  border:1px solid rgba(23,50,77,.12);
+  background:rgba(255,255,255,.78);
+  border-radius:11px;
+  padding:12px 14px;
+}
+.phase.done .subtask{
+  background:rgba(255,255,255,.52);
+}
+.subtask h4{margin:0 0 4px;font-size:15px}
+.subtask p{margin:0;color:#496072;font-size:13px}
+.refs{margin-top:7px}
+.ref{
+  display:inline-block;
+  text-decoration:none;
+  border-radius:999px;
+  padding:3px 8px;
+  margin:2px 3px 2px 0;
+  font-size:11px;
+  font-weight:800;
+  border:1px solid;
+}
+.ref.adr{color:#224f7c;border-color:#b9cee1;background:#edf5fb}
+.ref.ku{color:#236b5e;border-color:#b8d8d1;background:#edf8f5}
+.ref:hover{text-decoration:underline}
+.phase-outcome{
+  margin-top:13px;
+  padding-top:11px;
+  border-top:1px solid rgba(23,50,77,.12);
+  font-size:13px;
+  color:#315b49;
+}
+.toolbar{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:16px;
+}
+.toolbar button{
+  border:1px solid #b9c9d0;
+  background:#fff;
+  color:#355165;
+  font-weight:800;
+  font-size:12px;
+  padding:8px 11px;
+  border-radius:9px;
+  cursor:pointer;
+}
+.toolbar button:hover{background:#f8fbfb}
+.progress{
+  margin-left:auto;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#4f6677;
+  font-size:12px;
+  font-weight:800;
+}
+.progress-bar{
+  width:180px;
+  height:9px;
+  background:#dfe7ea;
+  border-radius:999px;
+  overflow:hidden;
+}
+.progress-fill{
+  height:100%;
+  width:0%;
+  background:#2f7f62;
+  transition:width .2s;
+}
+.footer{padding:22px 0 44px;color:#71818d;font-size:12px}
+@media(max-width:800px){
+  h1{font-size:34px}
+  .phase{grid-template-columns:54px 1fr}
+  .phase-num{font-size:19px}
+  .phase-top{flex-direction:column}
+  .progress{margin-left:0;width:100%}
+}
+@media print{
+  body{background:#fff}
+  .toolbar{display:none}
+  .phase{break-inside:avoid;box-shadow:none}
+}
+</style>
+</head>
+<body data-plan-id="acme-cse-ea-v2">
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">Internal CSE / Enterprise Architecture Plan</div>
+    <h1>ACME Industrial Supply Co. — CSE / EA Preparation Plan</h1>
+    <p>Close stale governance loops, complete agreed safeguards, and validate whether manufacturing requirements have moved beyond the assumptions used during migration.</p>
+    <div class="hero-meta">
+      <span class="chip">Derived from ADR–KU Alignment Report</span>
+      <span class="chip">7-phase operating cycle</span>
+      <span class="chip">Interactive completion tracking</span>
+      <span class="chip">Internal working artifact</span>
+    </div>
+    <div class="notice"><strong>Example links:</strong> ADR and KU links intentionally point to fictional repository pages. Completion state is stored only in this browser using local storage.</div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker" style="color:var(--teal)">Plan structure</div>
+      <h2>Prepare → Validate → Workshop → Govern → Execute → Discover → Refresh</h2>
+      <p>Each top-level phase can be marked complete. Account-specific actions are nested as subtasks and remain sourced from the ADR–KU Alignment Report.</p>
+    </div>
+
+    <div class="toolbar">
+      <button id="markAll" type="button">Mark all complete</button>
+      <button id="resetAll" type="button">Reset completion</button>
+      <div class="progress">
+        <div class="progress-bar"><div class="progress-fill"></div></div>
+        <span class="progress-text">0 / 7 complete</span>
+      </div>
+    </div>
+
+    <div class="plan">
+      
+    <section class="phase" data-phase-card="prepare">
+      <div class="phase-num">01</div>
+      <div class="phase-content">
+        <div class="phase-top">
+          <div class="phase-title">
+            <div class="label">Phase 01</div>
+            <h3>Prepare</h3>
+          </div>
+          <label class="done-control">
+            <input class="phase-toggle" type="checkbox" data-phase="prepare">
+            Mark phase done
+          </label>
+        </div>
+        <p class="phase-summary">Build a focused account position before engaging the customer. Keep the sound foundation stable and concentrate effort where the report shows stale exceptions, incomplete safeguards, pending governance, or changing requirements.</p>
+        <div class="subtasks">
+          <div class="subtask"><h4>Separate the portfolio into stable, revisit, execution, and discovery items</h4><p>Treat the aligned platform, security, and MDM choices as stable unless new evidence appears.</p><div class="refs"><a class="ref adr" href="https://architecture.example.com/accounts/acme/adrs/ACME-ADR-001" target="_blank" rel="noopener">ACME-ADR-001</a> <a class="ref adr" href="https://architecture.example.com/accounts/acme/adrs/ACME-ADR-005" target="_blank" rel="noopener">ACME-ADR-005</a> <a class="ref adr" href="https://architecture.example.com/accounts/acme/adrs/ACME-ADR-008" target="_blank" rel="noopener">ACME-ADR-008</a> <a class="ref ku" href="https://architecture.example.com/knowledge-units/DWH-CLD-PLT-001" target="_blank" rel="noopener">DWH-CLD-PLT-001</a> <a class="ref ku" href="https://architecture.example.com/knowledge-units/SEC-CLD-DAT-011" target="_blank" rel="noopener">SEC-CLD-DAT-011</a> <a class="ref ku" href="https://architecture.example.com/knowledge-units/MDM-CLD-DAT-007" target="_blank" rel="noopener">MDM-CLD-DAT-007</a></div></div><div class="subtask"><h4>Prepare the two overdue governance items</h4><p>Gather the latest state of shared staging and temporary direct analyst write access so the customer discussion can seek a concrete disposition.</p><div class="refs"><a class="ref adr" href="https://architecture.example.com/accounts/acme/adrs/ACME-ADR-003" target="_blank" rel="noopener">ACME-ADR-003</a> <a class="ref adr" href="https://architecture.example.com/accounts/acme/adrs/ACME-ADR-004" target="_blank" rel="noopener">ACME-ADR-004</a> <a class="ref ku" href="https://architecture.example.com/knowledge-units/GOV-CLD-DAT-009" target="_blank" rel="noopener">GOV-CLD-DAT-009</a> <a class="ref ku" href="https://architecture.example.com/knowledge-units/SEC-CLD-GOV-005" target="_blank" rel="noopener">SEC-CLD-GOV-005</a></div></div><div class="subtask"><h4>Prepare execution closure evidence</h4><p>Define what would prove that the Finance freshness safeguard and DR testing commitments are closed.</p><div class="refs"><a class="ref adr" href="https://architecture.example.com/accounts/acme/adrs/ACME-ADR-002" target="_blank" rel="noopener">ACME-ADR-002</a> <a class="ref adr" href="https://architecture.example.com/accounts/acme/adrs/ACME-ADR-007" target="_blank" rel="noopener">ACME-ADR-007</a> <a class="ref ku" href="https://architecture.example.com/knowledge-units/ETL-CLD-APP-014" target="_blank" rel="noopener">ETL-CLD-APP-014</a> <a class="ref ku" href="https://architecture.example.com/knowledge-units/OPS-CLD-TEC-018" target="_blank" rel="noopener">OPS-CLD-TEC-018</a></div></div><div class="subtask"><h4>Prepare the Proposed DQ decision</h4><p>Clarify ownership, exception triage, and accountable resolution before the Proposed ADR becomes governing architecture.</p><div class="refs"><a class="ref adr" href="https://architecture.example.com/accounts/acme/adrs/ACME-ADR-006" target="_blank" rel="noopener">ACME-ADR-006</a></div></div>
+        </div>
+        <div class="phase-outcome"><strong>Phase outcome:</strong> A narrow, evidence-backed agenda that avoids reopening sound decisions unnecessarily.</div>
+      </div>
+    </section>
+    
+    <section class="phase" data-phase-card="validate">
+      <div class="phase-num">02</div>
+      <div class="phase-content">
+        <div class="phase-top">
+          <div class="phase-title">
+            <div class="label">Phase 02</div>
+            <h3>Validate</h3>
+          </div>
+          <label class="done-control">
+            <input class="phase-toggle" type="checkbox" data-phase="validate">
+            Mark phase done
+          </label>
+        </div>
+        <p class="phase-summary">Check the current facts and constraints behind the high-priority findings before using them as customer conclusions.</p>
+        <div class="subtasks">
+          <div class="subtask"><h4>Validate ADR-004 end condition</h4><p>Confirm whether the reconciliation pipeline is live and whether direct analyst write access remains active.</p><div class="refs"><a class="ref adr" href="https://architecture.example.com/accounts/acme/adrs/ACME-ADR-004" target="_blank" rel="noopener">ACME-ADR-004</a> <a class="ref ku" href="https://architecture.example.com/knowledge-units/SEC-CLD-GOV-005" target="_blank" rel="noopener">SEC-CLD-GOV-005</a></div></div><div class="subtask"><h4>Validate ADR-003 original constraint</h4><p>Confirm whether migration pressure still justifies a shared staging schema and document any current cross-domain impact.</p><div class="refs"><a class="ref adr" href="https://architecture.example.com/accounts/acme/adrs/ACME-ADR-003" target="_blank" rel="noopener">ACME-ADR-003</a> <a class="ref ku" href="https://architecture.example.com/knowledge-units/GOV-CLD-DAT-009" target="_blank" rel="noopener">GOV-CLD-DAT-009</a></div></div><div class="subtask"><h4>Validate manufacturing freshness and staffing</h4><p>Identify the OEE stakeholders, define the real freshness need, and verify whether the staffing constraint behind the batch route still holds.</p><div class="refs"><a class="ref adr" href="https://architecture.example.com/accounts/acme/adrs/ACME-ADR-009" target="_blank" rel="noopener">ACME-ADR-009</a> <a class="ref ku" href="https://architecture.example.com/knowledge-units/INT-CLD-APP-021" target="_blank" rel="noopener">INT-CLD-APP-021</a></div></div>
+        </div>
+        <div class="phase-outcome"><strong>Phase outcome:</strong> Validated facts that can be safely used to decide what deserves customer discussion.</div>
+      </div>
+    </section>
+    
+    <section class="phase" data-phase-card="workshop">
+      <div class="phase-num">03</div>
+      <div class="phase-content">
+        <div class="phase-top">
+          <div class="phase-title">
+            <div class="label">Phase 03</div>
+            <h3>Workshop</h3>
+          </div>
+          <label class="done-control">
+            <input class="phase-toggle" type="checkbox" data-phase="workshop">
+            Mark phase done
+          </label>
+        </div>
+        <p class="phase-summary">Use the customer session to validate what changed, agree which decisions need action, and assign owners. The workshop is not the end of the plan.</p>
+        <div class="subtasks">
+          <div class="subtask"><h4>Close or refresh the direct-write exception</h4><p>Confirm whether the temporary exception can now close or whether a new explicit decision is needed.</p><div class="refs"><a class="ref adr" href="https://architecture.example.com/accounts/acme/adrs/ACME-ADR-004" target="_blank" rel="noopener">ACME-ADR-004</a></div></div><div class="subtask"><h4>Revisit shared staging</h4><p>Determine whether the original constraint still holds and whether a new architecture decision is required.</p><div class="refs"><a class="ref adr" href="https://architecture.example.com/accounts/acme/adrs/ACME-ADR-003" target="_blank" rel="noopener">ACME-ADR-003</a></div></div><div class="subtask"><h4>Validate manufacturing latency</h4><p>Confirm the business freshness requirement before discussing a new ingestion design.</p><div class="refs"><a class="ref adr" href="https://architecture.example.com/accounts/acme/adrs/ACME-ADR-009" target="_blank" rel="noopener">ACME-ADR-009</a></div></div><div class="subtask"><h4>Assign execution and discovery follow-ups</h4><p>Agree owners for Finance safeguard automation, DR testing, DQ ownership, lineage, and retention discovery.</p><div class="refs"><a class="ref adr" href="https://architecture.example.com/accounts/acme/adrs/ACME-ADR-002" target="_blank" rel="noopener">ACME-ADR-002</a> <a class="ref adr" href="https://architecture.example.com/accounts/acme/adrs/ACME-ADR-006" target="_blank" rel="noopener">ACME-ADR-006</a> <a class="ref adr" href="https://architecture.example.com/accounts/acme/adrs/ACME-ADR-007" target="_blank" rel="noopener">ACME-ADR-007</a></div></div>
+        </div>
+        <div class="phase-outcome"><strong>Phase outcome:</strong> Agreed ADR actions, owners, validated requirements, and a bounded list of follow-ups.</div>
+      </div>
+    </section>
+    
+    <section class="phase" data-phase-card="govern">
+      <div class="phase-num">04</div>
+      <div class="phase-content">
+        <div class="phase-top">
+          <div class="phase-title">
+            <div class="label">Phase 04</div>
+            <h3>Govern</h3>
+          </div>
+          <label class="done-control">
+            <input class="phase-toggle" type="checkbox" data-phase="govern">
+            Mark phase done
+          </label>
+        </div>
+        <p class="phase-summary">Translate workshop conclusions into the customer's decision-governance process. The report remains advisory and does not rewrite ADRs.</p>
+        <div class="subtasks">
+          <div class="subtask"><h4>Route decision changes through ADR owners</h4><p>Refresh, close, or replace affected ADRs through normal customer governance.</p><div class="refs"><a class="ref adr" href="https://architecture.example.com/accounts/acme/adrs/ACME-ADR-003" target="_blank" rel="noopener">ACME-ADR-003</a> <a class="ref adr" href="https://architecture.example.com/accounts/acme/adrs/ACME-ADR-004" target="_blank" rel="noopener">ACME-ADR-004</a> <a class="ref adr" href="https://architecture.example.com/accounts/acme/adrs/ACME-ADR-009" target="_blank" rel="noopener">ACME-ADR-009</a></div></div><div class="subtask"><h4>Resolve the Proposed DQ ADR before acceptance</h4><p>Capture the ownership model, trade-offs, and exception accountability clearly enough for governance review.</p><div class="refs"><a class="ref adr" href="https://architecture.example.com/accounts/acme/adrs/ACME-ADR-006" target="_blank" rel="noopener">ACME-ADR-006</a></div></div><div class="subtask"><h4>Preserve declared vs. observed alignment traceability</h4><p>Keep report observations as evidence and update the ADR only through the owner-led process.</p></div>
+        </div>
+        <div class="phase-outcome"><strong>Phase outcome:</strong> An authoritative ADR repository that reflects validated customer decisions.</div>
+      </div>
+    </section>
+    
+    <section class="phase" data-phase-card="execute">
+      <div class="phase-num">05</div>
+      <div class="phase-content">
+        <div class="phase-top">
+          <div class="phase-title">
+            <div class="label">Phase 05</div>
+            <h3>Execute</h3>
+          </div>
+          <label class="done-control">
+            <input class="phase-toggle" type="checkbox" data-phase="execute">
+            Mark phase done
+          </label>
+        </div>
+        <p class="phase-summary">Track agreed safeguards and exception closures until implementation evidence exists.</p>
+        <div class="subtasks">
+          <div class="subtask"><h4>Close the Finance freshness safeguard</h4><p>Verify the manual workaround is automated, formally accepted, or otherwise resolved.</p><div class="refs"><a class="ref adr" href="https://architecture.example.com/accounts/acme/adrs/ACME-ADR-002" target="_blank" rel="noopener">ACME-ADR-002</a> <a class="ref ku" href="https://architecture.example.com/knowledge-units/ETL-CLD-APP-014" target="_blank" rel="noopener">ETL-CLD-APP-014</a></div></div><div class="subtask"><h4>Complete and evidence DR testing</h4><p>Verify the failover test occurs and evidence is captured against the accepted DR decision.</p><div class="refs"><a class="ref adr" href="https://architecture.example.com/accounts/acme/adrs/ACME-ADR-007" target="_blank" rel="noopener">ACME-ADR-007</a> <a class="ref ku" href="https://architecture.example.com/knowledge-units/OPS-CLD-TEC-018" target="_blank" rel="noopener">OPS-CLD-TEC-018</a></div></div><div class="subtask"><h4>Verify access removal if ADR-004 closes</h4><p>Confirm the operational access change is implemented, not only documented.</p><div class="refs"><a class="ref adr" href="https://architecture.example.com/accounts/acme/adrs/ACME-ADR-004" target="_blank" rel="noopener">ACME-ADR-004</a></div></div>
+        </div>
+        <div class="phase-outcome"><strong>Phase outcome:</strong> Operational risks are actually reduced rather than merely discussed.</div>
+      </div>
+    </section>
+    
+    <section class="phase" data-phase-card="discover">
+      <div class="phase-num">06</div>
+      <div class="phase-content">
+        <div class="phase-top">
+          <div class="phase-title">
+            <div class="label">Phase 06</div>
+            <h3>Discover</h3>
+          </div>
+          <label class="done-control">
+            <input class="phase-toggle" type="checkbox" data-phase="discover">
+            Mark phase done
+          </label>
+        </div>
+        <p class="phase-summary">Run focused follow-up discovery on topics that the report flags as relevant but does not prove to be architecture gaps.</p>
+        <div class="subtasks">
+          <div class="subtask"><h4>Qualify lineage and catalog ownership</h4><p>Determine whether the decision already exists elsewhere or remains open.</p></div><div class="subtask"><h4>Qualify retention and archival</h4><p>Determine whether retention boundaries are already governed, particularly for EU data.</p></div><div class="subtask"><h4>Translate validated needs into customer-success actions</h4><p>First assess capabilities already owned, then expertise needs, and only then additional capability where justified.</p><div class="refs"><a class="ref adr" href="https://architecture.example.com/accounts/acme/adrs/ACME-ADR-009" target="_blank" rel="noopener">ACME-ADR-009</a> <a class="ref adr" href="https://architecture.example.com/accounts/acme/adrs/ACME-ADR-006" target="_blank" rel="noopener">ACME-ADR-006</a></div></div>
+        </div>
+        <div class="phase-outcome"><strong>Phase outcome:</strong> Confirmed needs, linked existing decisions, or justified new architecture work.</div>
+      </div>
+    </section>
+    
+    <section class="phase" data-phase-card="refresh">
+      <div class="phase-num">07</div>
+      <div class="phase-content">
+        <div class="phase-top">
+          <div class="phase-title">
+            <div class="label">Phase 07</div>
+            <h3>Refresh</h3>
+          </div>
+          <label class="done-control">
+            <input class="phase-toggle" type="checkbox" data-phase="refresh">
+            Mark phase done
+          </label>
+        </div>
+        <p class="phase-summary">Create a new evidence snapshot after material ADR changes, execution closures, or validated discovery findings.</p>
+        <div class="subtasks">
+          <div class="subtask"><h4>Re-check current KU status and applicability</h4><p>Validate that the KUs still exist, remain current, and still apply to the decision context.</p><div class="refs"><a class="ref ku" href="https://architecture.example.com/knowledge-units/GOV-CLD-DAT-009" target="_blank" rel="noopener">GOV-CLD-DAT-009</a> <a class="ref ku" href="https://architecture.example.com/knowledge-units/SEC-CLD-GOV-005" target="_blank" rel="noopener">SEC-CLD-GOV-005</a> <a class="ref ku" href="https://architecture.example.com/knowledge-units/INT-CLD-APP-021" target="_blank" rel="noopener">INT-CLD-APP-021</a></div></div><div class="subtask"><h4>Recalculate the Accepted / Proposed portfolio view</h4><p>Reflect ADR closures, refreshed decisions, and newly accepted or proposed records.</p></div><div class="subtask"><h4>Reassess decision/governance trajectory</h4><p>Check whether migration-era exceptions are retiring and whether capacity-driven decisions are improving.</p></div>
+        </div>
+        <div class="phase-outcome"><strong>Phase outcome:</strong> A current ADR–KU Alignment Report and a new prioritized CSE / EA cycle.</div>
+      </div>
+    </section>
+    
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap">Synthetic example · Internal CSE / EA action plan · Customer workshop is one milestone within the full cycle.</div>
+</footer>
+<script>
+(function(){
+  const key = 'cse-ea-plan:' + document.body.dataset.planId;
+  const boxes = [...document.querySelectorAll('.phase-toggle')];
+  const fill = document.querySelector('.progress-fill');
+  const text = document.querySelector('.progress-text');
+
+  function readState(){
+    try { return JSON.parse(localStorage.getItem(key) || '{}'); }
+    catch(e){ return {}; }
+  }
+  function saveState(state){
+    localStorage.setItem(key, JSON.stringify(state));
+  }
+  function apply(){
+    const state = readState();
+    boxes.forEach(box => {
+      box.checked = !!state[box.dataset.phase];
+      box.closest('.phase').classList.toggle('done', box.checked);
+    });
+    updateProgress();
+  }
+  function updateProgress(){
+    const done = boxes.filter(b => b.checked).length;
+    const pct = Math.round((done / boxes.length) * 100);
+    fill.style.width = pct + '%';
+    text.textContent = done + ' / ' + boxes.length + ' complete';
+  }
+  boxes.forEach(box => {
+    box.addEventListener('change', () => {
+      const state = readState();
+      state[box.dataset.phase] = box.checked;
+      saveState(state);
+      box.closest('.phase').classList.toggle('done', box.checked);
+      updateProgress();
+    });
+  });
+  document.getElementById('markAll').addEventListener('click', () => {
+    const state = {};
+    boxes.forEach(b => state[b.dataset.phase] = true);
+    saveState(state); apply();
+  });
+  document.getElementById('resetAll').addEventListener('click', () => {
+    localStorage.removeItem(key); apply();
+  });
+  apply();
+})();
+</script>
+</body>
+</html>

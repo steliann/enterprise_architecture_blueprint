@@ -1,0 +1,74 @@
+---
+type: "business-use-case"
+artifact_type: "Business Use Case"
+schema_version: 1
+id: "{{ id }}"
+title: "{{ title }}"
+status: "{{ status | default('Candidate') }}"
+confidence: "{{ confidence | default('Low') }}"
+business_area: "{{ business_area | default('Unknown') }}"
+purpose_summary: "{{ purpose_summary | default('To be established from evidence.') }}"
+business_question: "{{ business_question | default('To be established from evidence.') }}"
+related_required_capabilities: {{ related_required_capabilities | default([]) | tojson }}
+related_data_products: {{ related_data_products | default([]) | tojson }}
+known_consumers: {{ known_consumers | default([]) | tojson }}
+created_on: "{{ date }}"
+last_updated: "{{ date }}"
+---
+
+# {{ id }} — {{ title }}
+
+## Purpose
+
+<Define the business outcome, accountability, or obligation.>
+
+## Primary Business Question
+
+> <State one clear question.>
+
+## Scope and Boundary
+
+**Includes:**
+
+- <Included outcome or information need.>
+
+**Excludes:**
+
+- <Adjacent use case, control, operation, or implementation detail.>
+
+## Consumers
+
+- <Consumer link or name.>
+
+## Decisions and Actions Supported
+
+- <Decision or action.>
+
+## Required Information
+
+- <Information needed.>
+
+## Timing and Service Expectations
+
+<State confirmed cadence and service expectations. Keep unknowns explicit.>
+
+## Required Capabilities
+
+- <RC link.>
+
+## Supporting Data Products
+
+- <DP link.>
+
+## Open Questions and Gaps
+
+| Open question or gap | Why it matters |
+| --- | --- |
+| <Question> | <Impact> |
+
+## Current Assessment
+
+**Status:** {{ status | default('Candidate') }}  
+**Confidence:** {{ confidence | default('Low') }}
+
+<Explain why the use case is distinct and how ready it is for validation.>

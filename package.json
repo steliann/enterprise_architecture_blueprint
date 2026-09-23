@@ -1,0 +1,11 @@
+{
+  "name": "architecture-ai",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "scripts": {
+    "validate": "npm run validate:spec && npm run validate:marketplace",
+    "validate:spec": "node scripts/validate-skill-spec.mjs",
+    "validate:marketplace": "node scripts/validate-marketplace.mjs"
+  }
+}

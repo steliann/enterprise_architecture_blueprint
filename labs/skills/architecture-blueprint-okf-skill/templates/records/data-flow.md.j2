@@ -1,0 +1,58 @@
+---
+type: "data-flow"
+artifact_type: "Data Flow"
+schema_version: 1
+id: "{{ id }}"
+title: "{{ title }}"
+status: "{{ status | default('Candidate') }}"
+confidence: "{{ confidence | default('Low') }}"
+source: "{{ source | default('Unknown') }}"
+target: "{{ target | default('Unknown') }}"
+frequency: "{{ frequency | default('Unknown') }}"
+produces_or_updates: {{ produces_or_updates | default([]) | tojson }}
+quality_controls: {{ quality_controls | default([]) | tojson }}
+operational_capabilities: {{ operational_capabilities | default([]) | tojson }}
+architecture_decisions: {{ architecture_decisions | default([]) | tojson }}
+created_on: "{{ date }}"
+last_updated: "{{ date }}"
+---
+
+# {{ id }} — {{ title }}
+
+## Purpose
+
+<Explain why this logical flow exists.>
+
+## Source and Target
+
+| Boundary | Value |
+| --- | --- |
+| Source | {{ source | default('Unknown') }} |
+| Target | {{ target | default('Unknown') }} |
+| Frequency | {{ frequency | default('Unknown') }} |
+
+## Flow Steps
+
+1. <Principal logical step.>
+
+## Data Products Produced or Updated
+
+- <DP link.>
+
+## Quality Controls
+
+- <QC link.>
+
+## Operational Capabilities
+
+- <OC link.>
+
+## Architecture Decisions
+
+- <ADR link.>
+
+## Risks and Open Questions
+
+| Risk or open question | Why it matters |
+| --- | --- |
+| <Question> | <Impact> |

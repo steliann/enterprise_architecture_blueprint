@@ -1,0 +1,20 @@
+{
+  "name": "architecture-ai",
+  "description": "Governed Architecture AI skills for architecture analysis, blueprint assessment, decision records, reporting, and architecture-practice automation.",
+  "owner": {
+    "name": "Your Organization",
+    "url": "https://github.com/qlik-all/enterprise_architecture_blueprint"
+  },
+  "plugins": [
+    {
+      "name": "architecture-ai-core",
+      "description": "Governed and supported Architecture AI skills for regular architecture work.",
+      "source": "./core/"
+    },
+    {
+      "name": "architecture-ai-labs",
+      "description": "Experimental Architecture AI skills under evaluation. Use only with explicit user awareness.",
+      "source": "./labs/"
+    }
+  ]
+}

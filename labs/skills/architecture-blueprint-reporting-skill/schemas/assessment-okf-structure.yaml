@@ -1,0 +1,69 @@
+schema_version: "2.0"
+
+frontmatter:
+  required:
+    - artifact.type
+    - artifact.schema_version
+    - artifact.review_version
+    - title
+    - status
+    - dates.created
+    - dates.last_updated
+    - source_blueprint.artifact
+    - source_blueprint.version
+    - scope.assessment_lenses
+    - assessment_principle
+    - recommendation_principle
+    - benefit_model
+    - change_log
+  constants:
+    artifact.type: architecture-blueprint-review
+  allowed_values:
+    status:
+      - draft
+      - review
+      - validated
+      - published
+      - superseded
+
+required_sections:
+  - "1. Assessment Position"
+  - "2. Classification Model"
+  - "3. Executive Assessment"
+  - "4. Coverage Findings"
+  - "5. Validation Items / Design Topics"
+  - "6. Candidate and Active Gaps"
+  - "7. Recommendations"
+  - "8. Cross-Gap Architecture Themes"
+  - "10. Aggregated Architecture Conclusions"
+  - "11. Assessment Disposition"
+
+optional_sections:
+  - "9. Cross-Gap Operational Themes"
+
+recommended_gap_subsections:
+  - "Expected architecture condition"
+  - "Architecture context / current condition"
+  - "Material mismatch"
+  - "Impact if not addressed"
+  - "Traceability"
+
+recommended_recommendation_subsections:
+  - "Recommended architectural direction"
+  - "Practical implications"
+  - "Options and trade-offs / key considerations"
+  - "Validation and acceptance"
+  - "Qlik/Talend role"
+  - "Expected benefits"
+  - "Traceability"
+
+commercial_tone_warnings:
+  - "Expanded Entitlement"
+  - "QTC-led target-state roadmap"
+  - "Impact if the Opportunity Is Not Evaluated"
+
+architecture_first_checks:
+  recommendation_direction_before_product_fit: true
+  unknown_is_not_gap: true
+  product_feature_not_gap: true
+  word_must_derive_from_assessment_okf: true

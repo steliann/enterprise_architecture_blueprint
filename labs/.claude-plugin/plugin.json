@@ -1,0 +1,9 @@
+{
+  "name": "architecture-ai-labs",
+  "description": "Experimental Architecture AI skills. Behavior and contracts may change.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Your Organization",
+    "url": "https://github.com/YOUR-ORG/architecture-ai"
+  }
+}

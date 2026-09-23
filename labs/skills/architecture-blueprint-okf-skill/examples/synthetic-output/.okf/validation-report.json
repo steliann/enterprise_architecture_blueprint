@@ -1,0 +1,16 @@
+{
+  "ok": true,
+  "counts": {
+    "architecture-decision-record": 1,
+    "business-use-case": 1,
+    "data-flow": 1,
+    "data-product": 1,
+    "operational-capability": 1,
+    "quality-control": 1,
+    "required-capability": 1,
+    "consumers": 2,
+    "sources": 2,
+    "technologies": 2
+  },
+  "issues": []
+}

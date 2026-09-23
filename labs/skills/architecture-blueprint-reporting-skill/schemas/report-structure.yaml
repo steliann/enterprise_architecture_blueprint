@@ -1,0 +1,59 @@
+schema_version: "1.0"
+
+frontmatter:
+  required:
+    - artifact.type
+    - artifact.schema_version
+    - artifact.report_version
+    - title
+    - subtitle
+    - customer.name
+    - status
+    - dates.created
+    - dates.last_updated
+    - ownership.owner
+    - source_blueprint.artifact
+    - source_blueprint.version
+    - information_basis
+    - report_purpose
+    - change_log
+  constants:
+    artifact.type: architecture-blueprint-report
+  allowed_values:
+    status:
+      - draft
+      - review
+      - validated
+      - published
+      - superseded
+
+required_sections:
+  - "1. Purpose and Scope"
+  - "2. Executive Architecture Summary"
+  - "3. Business Outcomes and Use Cases"
+  - "4. Architecture Overview"
+  - "5. Data and Integration Landscape"
+  - "6. Data Products and Consumption"
+  - "7. Principal Architecture Choices"
+  - "8. Data Quality, Trust and Governance"
+  - "9. Operations and Resilience"
+  - "10. Architecture Evolution and Current Transitions"
+  - "11. Points to Validate"
+  - "12. Architecture Baseline Conclusion"
+  - "Appendix B — Document History"
+
+optional_sections:
+  - "Appendix A — Architecture Inventory"
+
+style_warnings:
+  meta_document_openers:
+    - "This chapter describes"
+    - "This chapter presents"
+    - "This chapter explains"
+    - "This section describes"
+    - "This section presents"
+    - "The purpose of this chapter"
+  assessment_headings:
+    - "Gap Analysis"
+    - "Recommendations"
+    - "Architecture Gaps"

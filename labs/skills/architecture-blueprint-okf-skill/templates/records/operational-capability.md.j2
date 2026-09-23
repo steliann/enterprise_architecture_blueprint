@@ -1,0 +1,37 @@
+---
+type: "operational-capability"
+artifact_type: "Operational Capability"
+schema_version: 1
+id: "{{ id }}"
+title: "{{ title }}"
+status: "{{ status | default('Candidate') }}"
+confidence: "{{ confidence | default('Low') }}"
+operates_or_supports: {{ operates_or_supports | default([]) | tojson }}
+architecture_decisions: {{ architecture_decisions | default([]) | tojson }}
+created_on: "{{ date }}"
+last_updated: "{{ date }}"
+---
+
+# {{ id }} — {{ title }}
+
+## Capability Statement
+
+<State the repeatable operating ability.>
+
+## Operational Behaviours
+
+- <Schedule, monitor, recover, secure, deploy, scale, retain, or retire behaviour.>
+
+## Operates or Supports
+
+- <DF or DP link.>
+
+## Architecture Decisions
+
+- <ADR link.>
+
+## Open Questions and Gaps
+
+| Open question or gap | Why it matters |
+| --- | --- |
+| <Question> | <Impact> |

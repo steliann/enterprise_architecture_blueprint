@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "package-index",
+  "type": "object",
+  "required": [
+    "type",
+    "artifact_type",
+    "okf_version",
+    "schema_version",
+    "document_type",
+    "template_set",
+    "template_set_version",
+    "customer",
+    "solution",
+    "status",
+    "last_updated"
+  ],
+  "properties": {
+    "type": {
+      "const": "architecture-blueprint"
+    },
+    "artifact_type": {
+      "const": "Architecture Blueprint"
+    },
+    "okf_version": {
+      "const": "0.2"
+    },
+    "schema_version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "document_type": {
+      "const": "Package Index"
+    },
+    "template_set": {
+      "type": "string",
+      "minLength": 1
+    },
+    "template_set_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "customer": {
+      "type": "string",
+      "minLength": 1
+    },
+    "solution": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "enum": [
+        "Working",
+        "Validated",
+        "Archived"
+      ]
+    },
+    "last_updated": {
+      "$ref": "#/$defs/date"
+    }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "idList": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^(UC|RC|DP|DF|QC|OC|ADR)-[0-9]{3}$"
+      },
+      "uniqueItems": true
+    },
+    "status": {
+      "enum": [
+        "Confirmed",
+        "Candidate",
+        "Target",
+        "Transitional",
+        "Deprecated",
+        "Superseded"
+      ]
+    },
+    "confidence": {
+      "enum": [
+        "High",
+        "Medium",
+        "Low"
+      ]
+    },
+    "date": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    }
+  }
+}

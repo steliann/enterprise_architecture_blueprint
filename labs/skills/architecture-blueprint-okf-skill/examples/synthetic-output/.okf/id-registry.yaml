@@ -1,0 +1,13 @@
+next_ids:
+  CON: 3
+  SRC: 3
+  TECH: 3
+  UC: 2
+  RC: 2
+  DP: 2
+  DF: 2
+  QC: 2
+  OC: 2
+  ADR: 2
+retired_ids: []
+redirects: {}

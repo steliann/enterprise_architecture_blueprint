@@ -1,0 +1,9 @@
+{
+  "name": "architecture-ai-core",
+  "description": "Governed Architecture AI skills for architecture assessment, reporting and decision support.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Your Organization",
+    "url": "https://github.com/YOUR-ORG/architecture-ai"
+  }
+}

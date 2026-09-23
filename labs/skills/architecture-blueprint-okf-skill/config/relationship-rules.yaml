@@ -1,0 +1,37 @@
+rules:
+  - left_type: business-use-case
+    left_field: related_required_capabilities
+    right_type: required-capability
+    right_field: related_use_cases
+  - left_type: business-use-case
+    left_field: related_data_products
+    right_type: data-product
+    right_field: supports_use_cases
+  - left_type: data-product
+    left_field: produced_or_updated_by
+    right_type: data-flow
+    right_field: produces_or_updates
+  - left_type: data-product
+    left_field: assured_by_quality_controls
+    right_type: quality-control
+    right_field: applies_to
+  - left_type: data-product
+    left_field: operated_by_capabilities
+    right_type: operational-capability
+    right_field: operates_or_supports
+  - left_type: data-product
+    left_field: shaped_by_adrs
+    right_type: architecture-decision-record
+    right_field: affected_artifacts
+  - left_type: data-flow
+    left_field: quality_controls
+    right_type: quality-control
+    right_field: applies_to
+  - left_type: data-flow
+    left_field: operational_capabilities
+    right_type: operational-capability
+    right_field: operates_or_supports
+  - left_type: data-flow
+    left_field: architecture_decisions
+    right_type: architecture-decision-record
+    right_field: affected_artifacts

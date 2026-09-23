@@ -1,0 +1,72 @@
+---
+type: "architecture-blueprint"
+artifact_type: "Architecture Blueprint"
+okf_version: "{{ okf_version }}"
+schema_version: 1
+document_type: "Package Index"
+template_set: "{{ template_set }}"
+template_set_version: "{{ template_set_version }}"
+customer: "{{ customer }}"
+solution: "{{ solution }}"
+status: "Working"
+last_updated: "{{ date }}"
+---
+
+# {{ customer }} — {{ solution }} Architecture Blueprint
+
+## Purpose
+
+This package is the maintained architecture blueprint for {{ solution }}. It connects consumer outcomes and business use cases to required capabilities, managed information products, data movement, trust controls, operating capabilities, technologies, and architecture decisions.
+
+## Start Here
+
+- [High-Level Architecture](high-level-architecture.md)
+- [Knowledge Model](knowledge-model.md)
+- [Consumers](consumers.md)
+- [Sources](sources.md)
+- [Technologies](technologies.md)
+
+## Package Inventory
+
+| Record type | Count |
+| --- | ---: |
+{% for item in inventory %}| {{ item.label }} | {{ item.count }} |
+{% endfor %}
+
+## Modelling Status
+
+The package distinguishes confirmed, candidate, transitional, target, deprecated, and superseded elements. Unknown ownership, thresholds, service levels, recovery objectives, dates, and rationale remain explicit open questions.
+
+## Folder Structure
+
+```text
+architecture-blueprint/
+├── index.md
+├── high-level-architecture.md
+├── knowledge-model.md
+├── consumers.md
+├── sources.md
+├── technologies.md
+├── business-use-cases/
+├── required-capabilities/
+├── data-products/
+├── data-flows/
+├── quality-controls/
+├── operational-capabilities/
+└── architecture-decision-records/
+```
+
+## Primary Architecture Chain
+
+```text
+Consumer → Business Use Case → Required Capability
+Source → Data Flow → Data Product → Consumer
+Quality Control assures delivery
+Operational Capability operates delivery
+Technology realizes or constrains implementation
+ADR explains architecture-shaping choices
+```
+
+## Scope and Maintenance Notes
+
+This blueprint is a maintained architecture understanding, not a low-level design or assessment report. New evidence is merged using stable IDs, explicit change history, and template validation.

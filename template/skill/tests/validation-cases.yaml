@@ -1,0 +1,2 @@
+- rule: evidence-boundary
+  expected: "No unsupported facts are invented"

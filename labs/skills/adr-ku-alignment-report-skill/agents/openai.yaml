@@ -1,0 +1,17 @@
+interface:
+  display_name: adr ku alignment report
+  short_description: Create or refresh an internal ADR–KU Alignment Report for one
+    customer account from Accepted/Proposed ADRs, current Knowledge Units, and current
+    customer/account context. Use the full ADR knowledge available, classify ADRs
+    as Direct/Adjacent/Contextual during analysis, keep contextual ADRs out of alignment
+    metrics, revalidate KU currency, distinguish Declared from Observed Alignment,
+    and present the result using the canonical ACME/Northstar report pattern.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

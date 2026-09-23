@@ -1,0 +1,130 @@
+skill_version: "1.1.0"
+
+metadata:
+  status: [current, planned, target, transitional, deprecated, retired]
+  confidence: [high, medium, low, not_assessed]
+  validation: [confirmed, needs_correction, incomplete, unable_to_validate, not_applicable]
+  gap_state: [candidate, active, planned, in_progress, mitigated, closed, absorbed, superseded, rejected]
+  recommendation_state: [proposed, accepted, planned, in_progress, implemented, validated, completed, rejected, deferred, superseded]
+  validation_item_state: [open, resolved, accepted_limitation, superseded]
+  priority: [critical, high, medium, low]
+  horizon: [now, next, later]
+  response_class:
+    - current_capability
+    - current_plus_strategic
+    - strategic_capability
+    - adjacent_domain
+    - hybrid
+
+benefit_model:
+  - Reliability & Risk
+  - Operational Efficiency
+  - Performance & Scalability
+  - Agility & Time to Value
+  - Governance & Architectural Sustainability
+
+review_lenses:
+  - requirements_fitness
+  - technology_fitness
+  - integration_and_data_movement
+  - data_management_and_products
+  - data_quality_governance_and_trust
+  - operational_fitness
+  - security_access_and_retention
+  - architecture_consistency
+  - lifecycle_and_evolution
+
+coverage_categories:
+  - cross-blueprint-integrity
+  - sources
+  - business-use-cases
+  - required-capabilities
+  - quality-controls
+  - operational-capabilities
+  - data-products
+  - consumers
+  - data-flows
+  - technologies
+  - architecture-decision-records
+  - high-level-architecture
+
+coverage_rubric:
+  model_version: "1.0"
+  normalize_enabled_weights: true
+  dimensions:
+    required_field_completeness:
+      label: Required field completeness
+      enabled: true
+      weight: 15
+      question: Are the fields required by the Blueprint model populated sufficiently for review?
+    relationship_integrity:
+      label: Relationship integrity
+      enabled: true
+      weight: 15
+      question: Are references valid and are key forward relationships present?
+    ownership_and_accountability:
+      label: Ownership and accountability
+      enabled: true
+      weight: 10
+      question: Are decision, service, data and control owners known where conclusions depend on them?
+    lifecycle_state_clarity:
+      label: Lifecycle state clarity
+      enabled: true
+      weight: 10
+      question: Are current, target, transitional, deprecated and retirement states distinguishable?
+    end_to_end_traceability:
+      label: End-to-end traceability
+      enabled: true
+      weight: 10
+      question: Can business need be traced through required capability to realization, trust and operations?
+    authority_and_interface_contracts:
+      label: Authority and interface contracts
+      enabled: true
+      weight: 10
+      question: Are source authority, overlap, cutover and interface assumptions explicit where material?
+    control_thresholds_and_acceptance:
+      label: Control thresholds and acceptance
+      enabled: true
+      weight: 10
+      question: Are measurable thresholds, exception paths and acceptance criteria represented?
+    operations_monitoring_recovery:
+      label: Operations, monitoring and recovery
+      enabled: true
+      weight: 10
+      question: Are service expectations, monitoring, failure handling and recovery sufficiently known?
+    security_retention_access:
+      label: Security, retention and access
+      enabled: true
+      weight: 5
+      question: Are material access, retention, privacy and disclosure constraints represented?
+    decision_currency_and_rationale:
+      label: Decision currency and rationale
+      enabled: true
+      weight: 5
+      question: Do ADRs explain material choices and is current fitness and relevance visible?
+
+coverage_levels:
+  - {min: 85, label: High}
+  - {min: 70, label: Moderate-High}
+  - {min: 50, label: Moderate}
+  - {min: 30, label: Low-Moderate}
+  - {min: 0, label: Low}
+
+report:
+  required_sections:
+    - About this architecture assessment
+    - Executive assessment
+    - Assessment approach and classification
+    - Findings and recommendations at a glance
+    - Detailed architecture findings and recommended responses
+    - Cross-gap architecture themes
+    - Validation items and evidence to capture
+    - Aggregated architecture conclusions
+    - Assessment disposition
+    - Document status
+
+slides:
+  require_one_gap_per_slide: true
+  require_methodology_slide: true
+  require_portfolio_slide: true
+  require_next_steps_slide: true

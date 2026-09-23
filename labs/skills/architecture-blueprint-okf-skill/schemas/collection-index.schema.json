@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "collection-index",
+  "type": "object",
+  "required": [
+    "type",
+    "artifact_type",
+    "schema_version",
+    "collection",
+    "record_type",
+    "status",
+    "last_updated"
+  ],
+  "properties": {
+    "type": {
+      "const": "collection-index"
+    },
+    "artifact_type": {
+      "const": "Architecture Blueprint"
+    },
+    "schema_version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "collection": {
+      "type": "string"
+    },
+    "record_type": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "Working",
+        "Validated",
+        "Archived"
+      ]
+    },
+    "last_updated": {
+      "$ref": "#/$defs/date"
+    }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "idList": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^(UC|RC|DP|DF|QC|OC|ADR)-[0-9]{3}$"
+      },
+      "uniqueItems": true
+    },
+    "status": {
+      "enum": [
+        "Confirmed",
+        "Candidate",
+        "Target",
+        "Transitional",
+        "Deprecated",
+        "Superseded"
+      ]
+    },
+    "confidence": {
+      "enum": [
+        "High",
+        "Medium",
+        "Low"
+      ]
+    },
+    "date": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    }
+  }
+}

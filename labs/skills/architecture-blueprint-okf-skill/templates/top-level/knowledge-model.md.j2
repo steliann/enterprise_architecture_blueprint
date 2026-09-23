@@ -1,0 +1,75 @@
+---
+type: "knowledge-model"
+artifact_type: "Architecture Blueprint"
+schema_version: 1
+document_type: "Knowledge Model"
+customer: "{{ customer }}"
+solution: "{{ solution }}"
+status: "Working"
+last_updated: "{{ date }}"
+---
+
+# {{ customer }} — {{ solution }} Knowledge Model
+
+## Purpose
+
+Define the concepts, relationships, statuses, identifiers, and modelling rules used by this blueprint.
+
+## Conceptual Model
+
+```text
+Consumer → participates in → Business Use Case
+Consumer → consumes → Data Product
+Business Use Case → requires → Required Capability
+Source → feeds → Data Flow
+Data Flow → produces or updates → Data Product
+Quality Control → assures → Data Flow or Data Product
+Operational Capability → operates or supports → Data Flow or Data Product
+Technology → realizes or constrains → implementation
+ADR → shapes → architecture records
+```
+
+## Concepts
+
+| Concept | Identifier | Definition |
+| --- | --- | --- |
+| Consumer | CON-NNN | Person, team, organisation, public audience, or system that uses information or participates in an outcome. |
+| Source | SRC-NNN | Real external system or provider that originates or externally curates data. |
+| Technology | TECH-NNN | Named product, service, platform, engine, or material implementation pattern. |
+| Business Use Case | UC-NNN | Distinct consumer outcome, decision, accountability, or obligation supported by data. |
+| Required Capability | RC-NNN | Implementation-independent statement of required functional and non-functional ability. |
+| Data Product | DP-NNN | Managed information offering for defined consumers and purposes. |
+| Data Flow | DF-NNN | Logical movement and transformation path from source or product to target product or destination. |
+| Quality Control | QC-NNN | Preventive, detective, or corrective trust mechanism. |
+| Operational Capability | OC-NNN | Repeatable ability to run, observe, recover, secure, scale, deploy, or retire the solution. |
+| Architecture Decision Record | ADR-NNN | Record of a material architecture choice, rationale status, alternatives, and consequences. |
+
+## Relationship Semantics
+
+<Define any customer-specific refinements to the standard relationships.>
+
+## Evidence, Status, and Confidence
+
+Public records contain conclusions and open questions. Detailed provenance is maintained in `.okf/evidence-ledger.jsonl` and `.okf/claim-map.yaml`.
+
+## Identifier and File Rules
+
+IDs are permanent and never reused. Filenames use the stable ID followed by a lowercase hyphenated title. Collection `index.md` files are reserved and do not represent model records.
+
+## Modelling Rules
+
+- Model business outcomes before technology.
+- Keep data quality under Quality Controls.
+- Keep operational concerns under Operational Capabilities.
+- Treat only real external originators as Sources.
+- Separate current, transitional, and target state.
+- Record unknowns instead of inventing facts.
+- Maintain inverse relationships where defined.
+
+## Folder Structure
+
+<Describe the canonical folders and any approved extensions.>
+
+## Template and Schema Governance
+
+The package is governed by the template set and schema versions recorded in `.okf/template-lock.yaml`.

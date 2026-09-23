@@ -1,0 +1,10 @@
+claims:
+  - id: CLM-0001
+    subject: UC-001
+    statement: Finance requires a monthly reconciled view of payments and commitments.
+    state: Current
+    support: Confirmed
+    confidence: High
+    evidence_ids: [EVD-0001]
+    affected_records: [UC-001, RC-001, DP-001]
+conflicts: []

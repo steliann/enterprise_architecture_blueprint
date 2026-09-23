@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "architecture-decision-record",
+  "type": "object",
+  "required": [
+    "type",
+    "artifact_type",
+    "schema_version",
+    "id",
+    "title",
+    "status",
+    "confidence",
+    "decision_kind",
+    "decision_date",
+    "affected_artifacts",
+    "created_on",
+    "last_updated"
+  ],
+  "properties": {
+    "type": {
+      "const": "architecture-decision-record"
+    },
+    "artifact_type": {
+      "const": "Architecture Decision Record"
+    },
+    "schema_version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "id": {
+      "pattern": "^ADR-[0-9]{3}$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "enum": [
+        "Proposed",
+        "Accepted",
+        "Superseded",
+        "Deprecated"
+      ]
+    },
+    "confidence": {
+      "$ref": "#/$defs/confidence"
+    },
+    "decision_kind": {
+      "enum": [
+        "Prospective",
+        "Retrospective",
+        "Transitional"
+      ]
+    },
+    "decision_date": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "#/$defs/date"
+        }
+      ]
+    },
+    "affected_artifacts": {
+      "$ref": "#/$defs/idList"
+    },
+    "created_on": {
+      "$ref": "#/$defs/date"
+    },
+    "last_updated": {
+      "$ref": "#/$defs/date"
+    }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "idList": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^(UC|RC|DP|DF|QC|OC|ADR)-[0-9]{3}$"
+      },
+      "uniqueItems": true
+    },
+    "status": {
+      "enum": [
+        "Confirmed",
+        "Candidate",
+        "Target",
+        "Transitional",
+        "Deprecated",
+        "Superseded"
+      ]
+    },
+    "confidence": {
+      "enum": [
+        "High",
+        "Medium",
+        "Low"
+      ]
+    },
+    "date": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    }
+  }
+}

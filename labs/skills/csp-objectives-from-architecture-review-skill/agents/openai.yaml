@@ -1,0 +1,15 @@
+interface:
+  display_name: csp objectives from architecture review
+  short_description: Generate or refresh a Customer Success Plan Objectives Open Knowledge
+    Format (OKF) package from an Architecture Blueprint Review OKF, preserving objective
+    identity, recommendation traceability, business-outcome linkage, planning semantics,
+    templates, and structural validation.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

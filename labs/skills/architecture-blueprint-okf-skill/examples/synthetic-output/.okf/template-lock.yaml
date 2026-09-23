@@ -1,0 +1,32 @@
+template_set: architecture-blueprint
+template_set_version: 1.0.0
+okf_version: '0.2'
+registry_sha256: c8552f86efc4f2abc6e69d6af42bde4b599957291f0cea6a608f905f5db247c6
+locked_on: '2026-08-01'
+documents:
+  package-index:
+    schema_version: 1
+  high-level-architecture:
+    schema_version: 1
+  knowledge-model:
+    schema_version: 1
+  consumers:
+    schema_version: 1
+  sources:
+    schema_version: 1
+  technologies:
+    schema_version: 1
+  business-use-case:
+    schema_version: 1
+  required-capability:
+    schema_version: 1
+  data-product:
+    schema_version: 1
+  data-flow:
+    schema_version: 1
+  quality-control:
+    schema_version: 1
+  operational-capability:
+    schema_version: 1
+  architecture-decision-record:
+    schema_version: 1

@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Northstar Components Group — CSE / EA Preparation Plan</title>
+<style>
+:root{
+  --ink:#17324d;
+  --muted:#637585;
+  --bg:#f4f7f8;
+  --card:#ffffff;
+  --line:#dbe4e8;
+  --teal:#287d80;
+  --teal-soft:#eaf4f3;
+  --done:#dff3e7;
+  --done-border:#7bbb96;
+  --done-ink:#1f5a3d;
+  --navy:#17324d;
+  --amber:#d69a32;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Inter,Segoe UI,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.5;
+}
+.hero{
+  background:linear-gradient(135deg,#132d46 0%,#1e5966 70%,#2b7f80 100%);
+  color:#fff;
+  padding:48px 0 38px;
+}
+.wrap{max-width:1160px;margin:0 auto;padding:0 28px}
+.kicker{
+  font-size:12px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-weight:800;
+  opacity:.85;
+}
+h1{font-size:42px;line-height:1.06;margin:9px 0 12px;max-width:920px}
+.hero p{font-size:18px;max-width:880px;margin:0;opacity:.92}
+.hero-meta{display:flex;gap:9px;flex-wrap:wrap;margin-top:22px}
+.chip{
+  padding:7px 10px;
+  border:1px solid rgba(255,255,255,.28);
+  background:rgba(255,255,255,.08);
+  border-radius:999px;
+  font-size:12px;
+}
+.notice{
+  margin-top:22px;
+  border-left:4px solid var(--amber);
+  padding:11px 14px;
+  background:#fff7e6;
+  color:#704d13;
+  border-radius:6px;
+}
+main{padding:30px 0 42px}
+.section-head{margin-bottom:18px}
+.section-head h2{font-size:28px;margin:4px 0 6px}
+.section-head p{margin:0;color:var(--muted);max-width:900px}
+.plan{display:grid;gap:16px}
+.phase{
+  position:relative;
+  display:grid;
+  grid-template-columns:86px 1fr;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 4px 14px rgba(20,47,72,.05);
+  transition:background .2s,border-color .2s,transform .2s;
+}
+.phase.done{
+  background:var(--done);
+  border-color:var(--done-border);
+}
+.phase.done .phase-num{
+  background:#cfe9da;
+  color:var(--done-ink);
+}
+.phase-num{
+  background:var(--teal-soft);
+  color:var(--teal);
+  font-size:24px;
+  font-weight:850;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  padding-top:22px;
+  transition:background .2s,color .2s;
+}
+.phase-content{padding:20px 22px 22px}
+.phase-top{
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  align-items:flex-start;
+}
+.phase-title .label{
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  color:var(--teal);
+  font-weight:850;
+  margin-bottom:3px;
+}
+.phase-title h3{font-size:23px;margin:0}
+.phase.done .phase-title .label,
+.phase.done .phase-title h3{color:var(--done-ink)}
+.done-control{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  border:1px solid #bfd0d7;
+  background:#fff;
+  padding:7px 10px;
+  border-radius:10px;
+  cursor:pointer;
+  user-select:none;
+  white-space:nowrap;
+  font-size:12px;
+  font-weight:800;
+  color:#445d6e;
+}
+.phase.done .done-control{
+  border-color:#79b592;
+  color:var(--done-ink);
+  background:#f4fff8;
+}
+.done-control input{
+  width:17px;height:17px;
+  accent-color:#2f7f62;
+  cursor:pointer;
+}
+.phase-summary{margin:9px 0 13px;color:#3d5364}
+.subtasks{
+  display:grid;
+  gap:10px;
+  margin-top:10px;
+}
+.subtask{
+  border:1px solid rgba(23,50,77,.12);
+  background:rgba(255,255,255,.78);
+  border-radius:11px;
+  padding:12px 14px;
+}
+.phase.done .subtask{
+  background:rgba(255,255,255,.52);
+}
+.subtask h4{margin:0 0 4px;font-size:15px}
+.subtask p{margin:0;color:#496072;font-size:13px}
+.refs{margin-top:7px}
+.ref{
+  display:inline-block;
+  text-decoration:none;
+  border-radius:999px;
+  padding:3px 8px;
+  margin:2px 3px 2px 0;
+  font-size:11px;
+  font-weight:800;
+  border:1px solid;
+}
+.ref.adr{color:#224f7c;border-color:#b9cee1;background:#edf5fb}
+.ref.ku{color:#236b5e;border-color:#b8d8d1;background:#edf8f5}
+.ref:hover{text-decoration:underline}
+.phase-outcome{
+  margin-top:13px;
+  padding-top:11px;
+  border-top:1px solid rgba(23,50,77,.12);
+  font-size:13px;
+  color:#315b49;
+}
+.toolbar{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:16px;
+}
+.toolbar button{
+  border:1px solid #b9c9d0;
+  background:#fff;
+  color:#355165;
+  font-weight:800;
+  font-size:12px;
+  padding:8px 11px;
+  border-radius:9px;
+  cursor:pointer;
+}
+.toolbar button:hover{background:#f8fbfb}
+.progress{
+  margin-left:auto;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#4f6677;
+  font-size:12px;
+  font-weight:800;
+}
+.progress-bar{
+  width:180px;
+  height:9px;
+  background:#dfe7ea;
+  border-radius:999px;
+  overflow:hidden;
+}
+.progress-fill{
+  height:100%;
+  width:0%;
+  background:#2f7f62;
+  transition:width .2s;
+}
+.footer{padding:22px 0 44px;color:#71818d;font-size:12px}
+@media(max-width:800px){
+  h1{font-size:34px}
+  .phase{grid-template-columns:54px 1fr}
+  .phase-num{font-size:19px}
+  .phase-top{flex-direction:column}
+  .progress{margin-left:0;width:100%}
+}
+@media print{
+  body{background:#fff}
+  .toolbar{display:none}
+  .phase{break-inside:avoid;box-shadow:none}
+}
+</style>
+</head>
+<body data-plan-id="northstar-cse-ea-v2">
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">Internal CSE / Enterprise Architecture Plan</div>
+    <h1>Northstar Components Group — CSE / EA Preparation Plan</h1>
+    <p>Prevent transitional architecture and operating constraints from quietly becoming the permanent target-state model.</p>
+    <div class="hero-meta">
+      <span class="chip">Derived from ADR–KU Alignment Report</span>
+      <span class="chip">7-phase operating cycle</span>
+      <span class="chip">Interactive completion tracking</span>
+      <span class="chip">Internal working artifact</span>
+    </div>
+    <div class="notice"><strong>Example links:</strong> ADR and KU links intentionally point to fictional repository pages. Completion state is stored only in this browser using local storage.</div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker" style="color:var(--teal)">Plan structure</div>
+      <h2>Prepare → Validate → Workshop → Govern → Execute → Discover → Refresh</h2>
+      <p>Each top-level phase can be marked complete. Account-specific actions are nested as subtasks and remain sourced from the ADR–KU Alignment Report.</p>
+    </div>
+
+    <div class="toolbar">
+      <button id="markAll" type="button">Mark all complete</button>
+      <button id="resetAll" type="button">Reset completion</button>
+      <div class="progress">
+        <div class="progress-bar"><div class="progress-fill"></div></div>
+        <span class="progress-text">0 / 7 complete</span>
+      </div>
+    </div>
+
+    <div class="plan">
+      
+    <section class="phase" data-phase-card="prepare">
+      <div class="phase-num">01</div>
+      <div class="phase-content">
+        <div class="phase-top">
+          <div class="phase-title">
+            <div class="label">Phase 01</div>
+            <h3>Prepare</h3>
+          </div>
+          <label class="done-control">
+            <input class="phase-toggle" type="checkbox" data-phase="prepare">
+            Mark phase done
+          </label>
+        </div>
+        <p class="phase-summary">Frame Northstar around transition-to-target-state discipline and operating-model maturity rather than platform replacement.</p>
+        <div class="subtasks">
+          <div class="subtask"><h4>Preserve the current technology foundation</h4><p>Treat the Snowflake and Qlik Talend Cloud direction as stable unless new evidence appears.</p><div class="refs"><a class="ref adr" href="https://architecture.example.com/accounts/northstar/adrs/NS-ADR-001" target="_blank" rel="noopener">NS-ADR-001</a> <a class="ref adr" href="https://architecture.example.com/accounts/northstar/adrs/NS-ADR-002" target="_blank" rel="noopener">NS-ADR-002</a> <a class="ref ku" href="https://architecture.example.com/knowledge-units/QTC-DAT-001" target="_blank" rel="noopener">QTC-DAT-001</a> <a class="ref ku" href="https://architecture.example.com/knowledge-units/QTC-PLT-004" target="_blank" rel="noopener">QTC-PLT-004</a></div></div><div class="subtask"><h4>Prepare ADR-003 and ADR-005 together</h4><p>Document the original temporary rationale and exit conditions for both transition decisions.</p><div class="refs"><a class="ref adr" href="https://architecture.example.com/accounts/northstar/adrs/NS-ADR-003" target="_blank" rel="noopener">NS-ADR-003</a> <a class="ref adr" href="https://architecture.example.com/accounts/northstar/adrs/NS-ADR-005" target="_blank" rel="noopener">NS-ADR-005</a> <a class="ref ku" href="https://architecture.example.com/knowledge-units/TAL-RUN-009" target="_blank" rel="noopener">TAL-RUN-009</a> <a class="ref ku" href="https://architecture.example.com/knowledge-units/MIG-DAT-006" target="_blank" rel="noopener">MIG-DAT-006</a></div></div><div class="subtask"><h4>Prepare the Proposed production-approval decision</h4><p>Prepare questions on guardrails, delegated authority, production controls, and domain-team capability before acceptance.</p><div class="refs"><a class="ref adr" href="https://architecture.example.com/accounts/northstar/adrs/NS-ADR-006" target="_blank" rel="noopener">NS-ADR-006</a> <a class="ref ku" href="https://architecture.example.com/knowledge-units/GOV-OPS-012" target="_blank" rel="noopener">GOV-OPS-012</a></div></div><div class="subtask"><h4>Prepare monitoring and DQ follow-ups</h4><p>Identify current CDC monitoring practices and clarify the pending DQ ownership model.</p><div class="refs"><a class="ref adr" href="https://architecture.example.com/accounts/northstar/adrs/NS-ADR-004" target="_blank" rel="noopener">NS-ADR-004</a> <a class="ref adr" href="https://architecture.example.com/accounts/northstar/adrs/NS-ADR-008" target="_blank" rel="noopener">NS-ADR-008</a> <a class="ref ku" href="https://architecture.example.com/knowledge-units/QR-CDC-003" target="_blank" rel="noopener">QR-CDC-003</a></div></div>
+        </div>
+        <div class="phase-outcome"><strong>Phase outcome:</strong> A focused account position centered on intentional modernization and operating-model decisions.</div>
+      </div>
+    </section>
+    
+    <section class="phase" data-phase-card="validate">
+      <div class="phase-num">02</div>
+      <div class="phase-content">
+        <div class="phase-top">
+          <div class="phase-title">
+            <div class="label">Phase 02</div>
+            <h3>Validate</h3>
+          </div>
+          <label class="done-control">
+            <input class="phase-toggle" type="checkbox" data-phase="validate">
+            Mark phase done
+          </label>
+        </div>
+        <p class="phase-summary">Check the current operational and business facts behind the transition, resilience, and freshness findings.</p>
+        <div class="subtasks">
+          <div class="subtask"><h4>Validate SAP resilience</h4><p>Confirm critical workloads, recovery path, tested failover evidence, and current runtime-placement intent.</p><div class="refs"><a class="ref adr" href="https://architecture.example.com/accounts/northstar/adrs/NS-ADR-003" target="_blank" rel="noopener">NS-ADR-003</a> <a class="ref ku" href="https://architecture.example.com/knowledge-units/TAL-RUN-009" target="_blank" rel="noopener">TAL-RUN-009</a></div></div><div class="subtask"><h4>Validate migration-pattern scope</h4><p>Map where direct database copy is still one-time migration and where it is being proposed for recurring production movement.</p><div class="refs"><a class="ref adr" href="https://architecture.example.com/accounts/northstar/adrs/NS-ADR-005" target="_blank" rel="noopener">NS-ADR-005</a> <a class="ref ku" href="https://architecture.example.com/knowledge-units/MIG-DAT-006" target="_blank" rel="noopener">MIG-DAT-006</a></div></div><div class="subtask"><h4>Validate service freshness</h4><p>Identify the stakeholders behind the intraday request and translate it into a measurable requirement.</p><div class="refs"><a class="ref adr" href="https://architecture.example.com/accounts/northstar/adrs/NS-ADR-007" target="_blank" rel="noopener">NS-ADR-007</a> <a class="ref ku" href="https://architecture.example.com/knowledge-units/INT-CAD-019" target="_blank" rel="noopener">INT-CAD-019</a></div></div><div class="subtask"><h4>Validate KU currency</h4><p>Use successor guidance for ADR-007 and prepare the ADR reference for normal governance refresh.</p><div class="refs"><a class="ref ku" href="https://architecture.example.com/knowledge-units/INT-CAD-014" target="_blank" rel="noopener">INT-CAD-014</a> <a class="ref ku" href="https://architecture.example.com/knowledge-units/INT-CAD-019" target="_blank" rel="noopener">INT-CAD-019</a></div></div>
+        </div>
+        <div class="phase-outcome"><strong>Phase outcome:</strong> Validated constraints and requirements that separate real architecture needs from assumptions.</div>
+      </div>
+    </section>
+    
+    <section class="phase" data-phase-card="workshop">
+      <div class="phase-num">03</div>
+      <div class="phase-content">
+        <div class="phase-top">
+          <div class="phase-title">
+            <div class="label">Phase 03</div>
+            <h3>Workshop</h3>
+          </div>
+          <label class="done-control">
+            <input class="phase-toggle" type="checkbox" data-phase="workshop">
+            Mark phase done
+          </label>
+        </div>
+        <p class="phase-summary">Use the customer session to agree which transition choices should retire or refresh and which Proposed decisions need more design work.</p>
+        <div class="subtasks">
+          <div class="subtask"><h4>Review the two transition decisions together</h4><p>Agree whether ADR-003 and ADR-005 should retire, refresh, or be replaced by explicit target-state decisions.</p><div class="refs"><a class="ref adr" href="https://architecture.example.com/accounts/northstar/adrs/NS-ADR-003" target="_blank" rel="noopener">NS-ADR-003</a> <a class="ref adr" href="https://architecture.example.com/accounts/northstar/adrs/NS-ADR-005" target="_blank" rel="noopener">NS-ADR-005</a></div></div><div class="subtask"><h4>Review the Proposed approval model</h4><p>Determine whether required controls can be preserved without institutionalizing the current central-team bottleneck.</p><div class="refs"><a class="ref adr" href="https://architecture.example.com/accounts/northstar/adrs/NS-ADR-006" target="_blank" rel="noopener">NS-ADR-006</a></div></div><div class="subtask"><h4>Confirm service-data freshness</h4><p>Validate the requirement before deciding whether ADR-007 needs architectural change.</p><div class="refs"><a class="ref adr" href="https://architecture.example.com/accounts/northstar/adrs/NS-ADR-007" target="_blank" rel="noopener">NS-ADR-007</a></div></div><div class="subtask"><h4>Assign monitoring, DQ, and discovery follow-ups</h4><p>Agree owners for operational monitoring, DQ ownership, lineage, and observability questions.</p><div class="refs"><a class="ref adr" href="https://architecture.example.com/accounts/northstar/adrs/NS-ADR-004" target="_blank" rel="noopener">NS-ADR-004</a> <a class="ref adr" href="https://architecture.example.com/accounts/northstar/adrs/NS-ADR-008" target="_blank" rel="noopener">NS-ADR-008</a></div></div>
+        </div>
+        <div class="phase-outcome"><strong>Phase outcome:</strong> Validated decisions, owners, pending design work, and bounded follow-up actions.</div>
+      </div>
+    </section>
+    
+    <section class="phase" data-phase-card="govern">
+      <div class="phase-num">04</div>
+      <div class="phase-content">
+        <div class="phase-top">
+          <div class="phase-title">
+            <div class="label">Phase 04</div>
+            <h3>Govern</h3>
+          </div>
+          <label class="done-control">
+            <input class="phase-toggle" type="checkbox" data-phase="govern">
+            Mark phase done
+          </label>
+        </div>
+        <p class="phase-summary">Move validated conclusions into the customer's ADR process and keep the report advisory.</p>
+        <div class="subtasks">
+          <div class="subtask"><h4>Route transition decisions through owner-led review</h4><p>Refresh, retire, or replace ADR-003 and ADR-005 as required.</p><div class="refs"><a class="ref adr" href="https://architecture.example.com/accounts/northstar/adrs/NS-ADR-003" target="_blank" rel="noopener">NS-ADR-003</a> <a class="ref adr" href="https://architecture.example.com/accounts/northstar/adrs/NS-ADR-005" target="_blank" rel="noopener">NS-ADR-005</a></div></div><div class="subtask"><h4>Resolve Proposed ADR-006 before acceptance</h4><p>Capture the approved control model and delegation boundaries clearly.</p><div class="refs"><a class="ref adr" href="https://architecture.example.com/accounts/northstar/adrs/NS-ADR-006" target="_blank" rel="noopener">NS-ADR-006</a></div></div><div class="subtask"><h4>Refresh the ADR-007 KU reference</h4><p>Replace the superseded KU reference through normal ADR governance rather than silently changing it in the report.</p><div class="refs"><a class="ref adr" href="https://architecture.example.com/accounts/northstar/adrs/NS-ADR-007" target="_blank" rel="noopener">NS-ADR-007</a> <a class="ref ku" href="https://architecture.example.com/knowledge-units/INT-CAD-014" target="_blank" rel="noopener">INT-CAD-014</a> <a class="ref ku" href="https://architecture.example.com/knowledge-units/INT-CAD-019" target="_blank" rel="noopener">INT-CAD-019</a></div></div><div class="subtask"><h4>Review Proposed ADR-008</h4><p>Clarify DQ ownership, centralized execution boundaries, exception accountability, and escalation before acceptance.</p><div class="refs"><a class="ref adr" href="https://architecture.example.com/accounts/northstar/adrs/NS-ADR-008" target="_blank" rel="noopener">NS-ADR-008</a></div></div>
+        </div>
+        <div class="phase-outcome"><strong>Phase outcome:</strong> A current, governed decision portfolio that reflects validated customer intent.</div>
+      </div>
+    </section>
+    
+    <section class="phase" data-phase-card="execute">
+      <div class="phase-num">05</div>
+      <div class="phase-content">
+        <div class="phase-top">
+          <div class="phase-title">
+            <div class="label">Phase 05</div>
+            <h3>Execute</h3>
+          </div>
+          <label class="done-control">
+            <input class="phase-toggle" type="checkbox" data-phase="execute">
+            Mark phase done
+          </label>
+        </div>
+        <p class="phase-summary">Close agreed operational and operating-model actions after the workshop.</p>
+        <div class="subtasks">
+          <div class="subtask"><h4>Implement or evidence SAP resilience</h4><p>If the current runtime remains, close the failover and recovery condition with demonstrable evidence.</p><div class="refs"><a class="ref adr" href="https://architecture.example.com/accounts/northstar/adrs/NS-ADR-003" target="_blank" rel="noopener">NS-ADR-003</a> <a class="ref ku" href="https://architecture.example.com/knowledge-units/TAL-RUN-009" target="_blank" rel="noopener">TAL-RUN-009</a></div></div><div class="subtask"><h4>Establish a common monitoring baseline</h4><p>Standardize capture delay, apply delay, recovery-state, and other agreed operational controls for CDC.</p><div class="refs"><a class="ref adr" href="https://architecture.example.com/accounts/northstar/adrs/NS-ADR-004" target="_blank" rel="noopener">NS-ADR-004</a> <a class="ref ku" href="https://architecture.example.com/knowledge-units/QR-CDC-003" target="_blank" rel="noopener">QR-CDC-003</a></div></div><div class="subtask"><h4>Develop the production operating model</h4><p>If the customer validates the bottleneck, run a focused CSE/EA workstream on delegated delivery, guardrails, and production controls.</p><div class="refs"><a class="ref adr" href="https://architecture.example.com/accounts/northstar/adrs/NS-ADR-006" target="_blank" rel="noopener">NS-ADR-006</a> <a class="ref ku" href="https://architecture.example.com/knowledge-units/GOV-OPS-012" target="_blank" rel="noopener">GOV-OPS-012</a></div></div>
+        </div>
+        <div class="phase-outcome"><strong>Phase outcome:</strong> Operational controls and delivery governance improve in practice, not only on paper.</div>
+      </div>
+    </section>
+    
+    <section class="phase" data-phase-card="discover">
+      <div class="phase-num">06</div>
+      <div class="phase-content">
+        <div class="phase-top">
+          <div class="phase-title">
+            <div class="label">Phase 06</div>
+            <h3>Discover</h3>
+          </div>
+          <label class="done-control">
+            <input class="phase-toggle" type="checkbox" data-phase="discover">
+            Mark phase done
+          </label>
+        </div>
+        <p class="phase-summary">Investigate unresolved architecture and customer-success topics outside the main workshop without treating them as proven gaps.</p>
+        <div class="subtasks">
+          <div class="subtask"><h4>Qualify enterprise lineage and impact analysis</h4><p>Determine whether the decision exists elsewhere or is genuinely open.</p></div><div class="subtask"><h4>Qualify runtime observability</h4><p>Determine whether an operational standard already exists outside the reviewed ADR portfolio.</p><div class="refs"><a class="ref adr" href="https://architecture.example.com/accounts/northstar/adrs/NS-ADR-004" target="_blank" rel="noopener">NS-ADR-004</a> <a class="ref ku" href="https://architecture.example.com/knowledge-units/QR-CDC-003" target="_blank" rel="noopener">QR-CDC-003</a></div></div><div class="subtask"><h4>Qualify the DQ ownership model</h4><p>Use customer validation to decide whether a separate KU-library discussion is warranted.</p><div class="refs"><a class="ref adr" href="https://architecture.example.com/accounts/northstar/adrs/NS-ADR-008" target="_blank" rel="noopener">NS-ADR-008</a></div></div><div class="subtask"><h4>Translate validated needs into account actions</h4><p>First assess capabilities already owned, then advisory/implementation support, and only then additional capability where justified.</p><div class="refs"><a class="ref adr" href="https://architecture.example.com/accounts/northstar/adrs/NS-ADR-003" target="_blank" rel="noopener">NS-ADR-003</a> <a class="ref adr" href="https://architecture.example.com/accounts/northstar/adrs/NS-ADR-007" target="_blank" rel="noopener">NS-ADR-007</a> <a class="ref ku" href="https://architecture.example.com/knowledge-units/QTC-PLT-004" target="_blank" rel="noopener">QTC-PLT-004</a> <a class="ref ku" href="https://architecture.example.com/knowledge-units/INT-CAD-019" target="_blank" rel="noopener">INT-CAD-019</a></div></div>
+        </div>
+        <div class="phase-outcome"><strong>Phase outcome:</strong> Confirmed architecture needs and evidence-based customer-success actions.</div>
+      </div>
+    </section>
+    
+    <section class="phase" data-phase-card="refresh">
+      <div class="phase-num">07</div>
+      <div class="phase-content">
+        <div class="phase-top">
+          <div class="phase-title">
+            <div class="label">Phase 07</div>
+            <h3>Refresh</h3>
+          </div>
+          <label class="done-control">
+            <input class="phase-toggle" type="checkbox" data-phase="refresh">
+            Mark phase done
+          </label>
+        </div>
+        <p class="phase-summary">Generate a new ADR–KU evidence snapshot after transition decisions, Proposed ADRs, monitoring, or freshness requirements materially change.</p>
+        <div class="subtasks">
+          <div class="subtask"><h4>Re-check all current and successor KUs</h4><p>Confirm status, supersession, confidence/maturity, and continued applicability.</p><div class="refs"><a class="ref ku" href="https://architecture.example.com/knowledge-units/TAL-RUN-009" target="_blank" rel="noopener">TAL-RUN-009</a> <a class="ref ku" href="https://architecture.example.com/knowledge-units/MIG-DAT-006" target="_blank" rel="noopener">MIG-DAT-006</a> <a class="ref ku" href="https://architecture.example.com/knowledge-units/GOV-OPS-012" target="_blank" rel="noopener">GOV-OPS-012</a> <a class="ref ku" href="https://architecture.example.com/knowledge-units/INT-CAD-019" target="_blank" rel="noopener">INT-CAD-019</a></div></div><div class="subtask"><h4>Recalculate Accepted / Proposed alignment</h4><p>Reflect the final status of ADR-006 and ADR-008 and any refreshed transition decisions.</p></div><div class="subtask"><h4>Reassess the trajectory</h4><p>Check whether temporary choices are retiring and whether the operating model is becoming more intentional.</p></div>
+        </div>
+        <div class="phase-outcome"><strong>Phase outcome:</strong> A current Northstar decision/governance trajectory and a new prioritized CSE / EA cycle.</div>
+      </div>
+    </section>
+    
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap">Synthetic example · Internal CSE / EA action plan · Customer workshop is one milestone within the full cycle.</div>
+</footer>
+<script>
+(function(){
+  const key = 'cse-ea-plan:' + document.body.dataset.planId;
+  const boxes = [...document.querySelectorAll('.phase-toggle')];
+  const fill = document.querySelector('.progress-fill');
+  const text = document.querySelector('.progress-text');
+
+  function readState(){
+    try { return JSON.parse(localStorage.getItem(key) || '{}'); }
+    catch(e){ return {}; }
+  }
+  function saveState(state){
+    localStorage.setItem(key, JSON.stringify(state));
+  }
+  function apply(){
+    const state = readState();
+    boxes.forEach(box => {
+      box.checked = !!state[box.dataset.phase];
+      box.closest('.phase').classList.toggle('done', box.checked);
+    });
+    updateProgress();
+  }
+  function updateProgress(){
+    const done = boxes.filter(b => b.checked).length;
+    const pct = Math.round((done / boxes.length) * 100);
+    fill.style.width = pct + '%';
+    text.textContent = done + ' / ' + boxes.length + ' complete';
+  }
+  boxes.forEach(box => {
+    box.addEventListener('change', () => {
+      const state = readState();
+      state[box.dataset.phase] = box.checked;
+      saveState(state);
+      box.closest('.phase').classList.toggle('done', box.checked);
+      updateProgress();
+    });
+  });
+  document.getElementById('markAll').addEventListener('click', () => {
+    const state = {};
+    boxes.forEach(b => state[b.dataset.phase] = true);
+    saveState(state); apply();
+  });
+  document.getElementById('resetAll').addEventListener('click', () => {
+    localStorage.removeItem(key); apply();
+  });
+  apply();
+})();
+</script>
+</body>
+</html>

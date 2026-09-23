@@ -1,0 +1,6 @@
+# This file is replaced by the resolved coverage rubric used for a generated review.
+# If no external rubric is supplied, copy coverage_rubric from config/defaults.yaml.
+coverage_rubric:
+  model_version: "1.0"
+  normalize_enabled_weights: true
+  dimensions: {}

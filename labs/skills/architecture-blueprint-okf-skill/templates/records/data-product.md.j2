@@ -1,0 +1,65 @@
+---
+type: "data-product"
+artifact_type: "Data Product"
+schema_version: 1
+id: "{{ id }}"
+title: "{{ title }}"
+status: "{{ status | default('Candidate') }}"
+confidence: "{{ confidence | default('Low') }}"
+supports_use_cases: {{ supports_use_cases | default([]) | tojson }}
+provides_required_capabilities: {{ provides_required_capabilities | default([]) | tojson }}
+produced_or_updated_by: {{ produced_or_updated_by | default([]) | tojson }}
+assured_by_quality_controls: {{ assured_by_quality_controls | default([]) | tojson }}
+operated_by_capabilities: {{ operated_by_capabilities | default([]) | tojson }}
+shaped_by_adrs: {{ shaped_by_adrs | default([]) | tojson }}
+created_on: "{{ date }}"
+last_updated: "{{ date }}"
+---
+
+# {{ id }} — {{ title }}
+
+## Product Purpose
+
+<Define the managed information offering and outcome.>
+
+## Consumers
+
+- <Consumer link or name.>
+
+## Information Provided
+
+- <Managed information content.>
+
+## Delivery Form
+
+<Describe access or delivery form without reducing the product to its storage technology.>
+
+## Business Use Cases Supported
+
+- <UC link.>
+
+## Required Capabilities Provided
+
+- <RC link.>
+
+## Data Flows
+
+- <DF link.>
+
+## Quality Controls
+
+- <QC link.>
+
+## Operational Capabilities
+
+- <OC link.>
+
+## Architecture Decisions
+
+- <ADR link.>
+
+## Open Questions and Gaps
+
+| Open question or gap | Why it matters |
+| --- | --- |
+| <Question> | <Impact> |

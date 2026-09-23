@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "operational-capability",
+  "type": "object",
+  "required": [
+    "type",
+    "artifact_type",
+    "schema_version",
+    "id",
+    "title",
+    "status",
+    "confidence",
+    "operates_or_supports",
+    "architecture_decisions",
+    "created_on",
+    "last_updated"
+  ],
+  "properties": {
+    "type": {
+      "const": "operational-capability"
+    },
+    "artifact_type": {
+      "const": "Operational Capability"
+    },
+    "schema_version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "id": {
+      "pattern": "^OC-[0-9]{3}$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "$ref": "#/$defs/status"
+    },
+    "confidence": {
+      "$ref": "#/$defs/confidence"
+    },
+    "operates_or_supports": {
+      "$ref": "#/$defs/idList"
+    },
+    "architecture_decisions": {
+      "type": "array",
+      "items": {
+        "pattern": "^ADR-[0-9]{3}$"
+      },
+      "uniqueItems": true
+    },
+    "created_on": {
+      "$ref": "#/$defs/date"
+    },
+    "last_updated": {
+      "$ref": "#/$defs/date"
+    }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "idList": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^(UC|RC|DP|DF|QC|OC|ADR)-[0-9]{3}$"
+      },
+      "uniqueItems": true
+    },
+    "status": {
+      "enum": [
+        "Confirmed",
+        "Candidate",
+        "Target",
+        "Transitional",
+        "Deprecated",
+        "Superseded"
+      ]
+    },
+    "confidence": {
+      "enum": [
+        "High",
+        "Medium",
+        "Low"
+      ]
+    },
+    "date": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    }
+  }
+}
